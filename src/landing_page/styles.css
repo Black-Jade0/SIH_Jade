@@ -1,0 +1,112 @@
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+  }
+  
+  .navbar-brand img {
+    width: 150px; /* Adjust width for a better fit */
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .nav-link.active,
+  .nav-link:hover {
+    color: #007bff;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+  .collapse .nav-item {
+    margin-left: 20px;
+  }
+  
+  @media (max-width: 991.98px) {
+    .nav-link {
+      padding: 15px;
+      text-align: center;
+    }
+  
+    .collapse .nav-item {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* General Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-col p {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #343a40;
+  }
+  
+  .footer-col a {
+    color: #6c757d;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-col a:hover {
+    color: #007bff;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #e9ecef;
+    padding-top: 20px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #adb5bd;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+  .footer-social-icons a {
+    margin-right: 15px;
+    font-size: 20px;
+    color: #6c757d;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-social-icons a:hover {
+    color: #007bff;
+  }
+  
+  

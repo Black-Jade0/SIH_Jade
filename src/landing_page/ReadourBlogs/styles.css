@@ -1,0 +1,78 @@
+/* custom.css */
+
+.blog-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: scale(1.05);
+}
+
+.blog-card img {
+    object-fit: cover;
+    height: 200px;
+}
+
+.blog-card .card-body {
+    padding: 20px;
+}
+
+.blog-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.blog-card .card-text {
+    color: #6c757d;
+}
+
+.blog-card .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+.blog-card .btn-primary:hover {
+    background-color: #0056b3;
+}
+.explore-page {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 50px 0;
+}
+
+.explore-page h1 {
+    font-size: 2.5rem;
+    color: #343a40; /* Dark grey for headings */
+    font-weight: bold;
+}
+
+.category-card {
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for cards */
+}
+
+.category-card:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.category-card img {
+    height: 200px;
+    object-fit: cover; /* Ensure images cover the card width */
+}
+
+.category-card .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.category-card .card-text {
+    color: #6c757d; /* Muted text color */
+}
+.Card_img {
+  
+}

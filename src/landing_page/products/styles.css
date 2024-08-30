@@ -1,0 +1,135 @@
+/* General Styles */
+.container {
+    max-width: 1200px;
+  }
+  
+  h1, h3 {
+    font-weight: bold;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 50px;
+    padding: 40px 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .hero-section h3 {
+    font-size: 1.5rem;
+    color: #777;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .hero-section a {
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .hero-section a:hover {
+    color: #0056b3;
+  }
+  
+  /* Left and Right Section Styles */
+  .section-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  .section-container img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  .section-content {
+    max-width: 500px;
+    padding: 30px;
+  }
+  
+  .section-content h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .section-content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .section-content a {
+    display: inline-block;
+    color: #007bff;
+    margin-right: 30px;
+    transition: color 0.3s ease;
+  }
+  
+  .section-content a:hover {
+    color: #0056b3;
+  }
+  
+  .badges img {
+    width: 150px;
+    margin: 0 15px 15px 0;
+  }
+  
+  /* Universe Section */
+  .universe-section {
+    margin-top: 50px;
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .universe-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .universe-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+  }
+  
+  .universe-section img {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .universe-section .col-4 p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .universe-section .btn {
+    width: 200px;
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .universe-section .btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .universe-section .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .imageURL {
+    height : 20px;
+    width : 20px;
+  }

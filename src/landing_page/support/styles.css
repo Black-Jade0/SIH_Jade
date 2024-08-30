@@ -1,0 +1,67 @@
+/* Hero Section Styles */
+.hero-section {
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    padding: 60px 0;
+  }
+  
+  .support-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+  }
+  
+  /* Support Cards */
+  .support-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .support-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .icon-container {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  .btn-outline-light {
+    border: 2px solid white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: white;
+    color: #1f4037;
+  }
+  
