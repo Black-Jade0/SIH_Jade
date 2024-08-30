@@ -1,8 +1,8 @@
-// src/components/CounselorSignup.jsx
+// src/components/MentorSignup.jsx
 import React from "react";
 import './style.css';
 
-function CounselorSignup() {
+function MentorSignup() {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-5">Counselor Registration</h1>
@@ -27,4 +27,4 @@ function CounselorSignup() {
   );
 }
 
-export default CounselorSignup;
+export default MentorSignup;
