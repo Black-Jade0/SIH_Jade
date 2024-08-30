@@ -5,18 +5,71 @@ export const CreativeTools = () => {
         <div>
             <div className="m-2 p-2 flex">
                 <button
+                    style={{
+                        color: "white",
+                        backgroundColor: "blue",
+                        padding: "10px 20px",
+                        border: "none",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                        marginRight: "10px",
+                        transition:
+                            "background-color 0.3s ease, transform 0.2s ease",
+                    }}
                     type="button"
-                    className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                    className="focus:outline-none"
+                    onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = "darkblue";
+                        e.target.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = "blue";
+                        e.target.style.transform = "scale(1)";
+                    }}
                 >
-                    <Link to={"/Searchcareers"}>Search Careers</Link>
+                    <Link
+                        to="/Searchcareers"
+                        style={{
+                            backgroundColor: "none",
+                            color: "white",
+                            textDecoration: "none",
+                        }}
+                    >
+                        Search Careers
+                    </Link>
                 </button>
                 <button
+                    style={{
+                        color: "black",
+                        backgroundColor: "#f0f0f0",
+                        padding: "10px 20px",
+                        border: "1px solid #ccc",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                        transition:
+                            "background-color 0.3s ease, transform 0.2s ease",
+                    }}
                     type="button"
-                    className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                    className="focus:outline-none"
+                    onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = "#e0e0e0";
+                        e.target.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = "#f0f0f0";
+                        e.target.style.transform = "scale(1)";
+                    }}
                 >
-                    <Link to={"/basicquiz"}>Basic Quiz</Link>
+                    <Link
+                        to="/basicquiz"
+                        style={{
+                            color: "black",
+                            textDecoration: "none",
+                        }}
+                    >
+                        Basic Quiz
+                    </Link>
                 </button>
-                
             </div>
         </div>
     );

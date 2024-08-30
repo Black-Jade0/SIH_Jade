@@ -23,14 +23,14 @@ function Pricing() {
                 <div className="col-2"></div>
                 <div className="col-6 mb-5">
                     <div className="row text-center">
-                        <div className="col p-3 pricing-card">
+                        <div className="col p-3 mx-4 pricing-card">
                             <h3 className="mb-3">For Counselors</h3>
                             <p>
                                 Get yourself certified with our{" "}
                                 <b>Future Framework Program</b>.
                             </p>
                         </div>
-                        <div className="col p-3 pricing-card">
+                        <div className="col p-3 mx-4 pricing-card">
                             <h3 className="mb-3">For Students</h3>
                             <p>
                                 Get your doubts cleared with expert and
