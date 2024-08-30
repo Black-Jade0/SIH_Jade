@@ -6,7 +6,7 @@ function Hero() {
     return (
         <div className="hero-container container text-center">
             <img
-                src="career-counseling-professional-advice-occupation-600nw-2338593489.webp"
+                src="./public/pexels-fauxels-3183150.jpg"
                 alt="Hero Image"
                 className="hero-image mb-5"
             />

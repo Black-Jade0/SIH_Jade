@@ -1,9 +1,9 @@
-// src/components/SchoolSignup.jsx
+// src/components/AdminSignup.jsx
 import React from "react";
 import './style.css';
 
 
-function SchoolSignup() {
+function AdminSignup() {
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-5">School Registration</h1>
@@ -28,4 +28,4 @@ function SchoolSignup() {
   );
 }
 
-export default SchoolSignup;
+export default AdminSignup;
