@@ -1,10 +1,19 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
+.career-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.career-item h3 {
+  margin: 0 0 5px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
