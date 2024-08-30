@@ -1,112 +1,193 @@
-/* Navbar Styling */
-.navbar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-  }
-  
-  .navbar-brand img {
-    width: 150px; /* Adjust width for a better fit */
-  }
-  
-  .nav-link {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-    padding: 10px 15px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .nav-link.active,
-  .nav-link:hover {
-    color: #007bff;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-  }
-  
-  .navbar-toggler {
-    border: none;
-    outline: none;
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-  
-  .collapse .nav-item {
-    margin-left: 20px;
-  }
-  
-  @media (max-width: 991.98px) {
-    .nav-link {
-      padding: 15px;
-      text-align: center;
-    }
-  
-    .collapse .nav-item {
-      margin-left: 0;
-      margin-bottom: 10px;
-    }
-  }
+/* Hero Section Styles */
+.hero-section {
+    background: linear-gradient(135deg, #324967, #99f2c8);
+    padding: 60px 0;
+}
 
-  /* General Footer Styles */
+.support-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+/* Support Cards */
+.support-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-container {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #000000;
+}
+
+/* Navbar Customization */
+.navbar-custom {
+    border-radius: 10px;
+    background-color: #ffffff; /* Light background */
+    padding: 0px 20px; /* Add padding for better spacing */
+}
+
+.navbar-brand {
+    font-size: 1.8rem; /* Larger font size for the brand */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #000000; /* Initial text color */
+}
+
+.nav-item {
+    border-radius: 100px;
+    font-weight: 700;
+    padding: 0px 20px;
+    margin: 0px 20px;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+.nav-item:hover {
+    color: black;
+    background-color: #86d9ff;
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 900;
+    color: #000000; /* Initial text color */
+    font-size: 1.1rem; /* Slightly larger font size */
+    padding: 8px 30px; /* Add padding for spacing */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for color and background */
+}
+.nav-link:hover{
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border: none; /* Remove default border */
+    background-color: #000000; /* Background color of the toggler */
+}
+
+.navbar-toggler:hover {
+    background-color: #66a8ff; /* Change color on hover */
+}
+
+.navbar-toggler-icon {
+    color: #000000; /* Color of the toggler icon */
+}
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center; /* Center items on smaller screens */
+        background-color: #1c1c1e; /* Consistent background on smaller screens */
+    }
+
+    .navbar-nav .nav-link {
+        display: block; /* Stack links vertically */
+        padding: 10px; /* Add more padding for touch-friendly size */
+        border-bottom: 1px solid #ffcc00; /* Add bottom border for separation */
+    }
+}
+
+/* General Footer Styles */
 footer {
     background-color: #f8f9fa;
     padding: 40px 0;
     color: #6c757d;
     font-size: 14px;
-  }
-  
-  .footer-container {
+}
+
+.footer-container {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-  }
-  
-  .footer-logo img {
+}
+
+.footer-logo img {
     width: 150px;
     margin-bottom: 15px;
-  }
-  
-  .footer-col p {
+}
+
+.footer-col p {
     font-weight: bold;
     margin-bottom: 20px;
     color: #343a40;
-  }
-  
-  .footer-col a {
+}
+
+.footer-col a {
     color: #6c757d;
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
     transition: color 0.3s ease;
-  }
-  
-  .footer-col a:hover {
+}
+
+.footer-col a:hover {
     color: #007bff;
-  }
-  
-  .footer-bottom {
+}
+
+.footer-bottom {
     border-top: 1px solid #e9ecef;
     padding-top: 20px;
     margin-top: 40px;
     text-align: center;
     font-size: 12px;
     color: #adb5bd;
-  }
-  
-  .footer-bottom p {
+}
+
+.footer-bottom p {
     margin: 0;
-  }
-  
-  .footer-social-icons a {
+}
+
+.footer-social-icons a {
     margin-right: 15px;
     font-size: 20px;
     color: #6c757d;
     transition: color 0.3s ease;
-  }
-  
-  .footer-social-icons a:hover {
+}
+
+.footer-social-icons a:hover {
     color: #007bff;
-  }
-  
-  
+}

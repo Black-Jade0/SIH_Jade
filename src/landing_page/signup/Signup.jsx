@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SignupTypeSelection from "./SignupTypeSelection";
 import StudentSignup from "./StudentsSignup";
 import CounselorSignup from "./CounselorSignup";
-import SchoolSignup from "./SchoolSignup";
+import AdminSignup from "./AdminSignup";
 import './style.css';
 
 
@@ -16,10 +16,10 @@ function Signup() {
         <SignupTypeSelection setSignupType={setSignupType} />
       ) : signupType === "student" ? (
         <StudentSignup />
-      ) : signupType === "counselor" ? (
+      ) : signupType === "admin" ? (
         <CounselorSignup />
-      ) : (
-        <SchoolSignup />
+      ) : signupType === "mentor" (
+        <AdminSignup />
       )}
     </div>
   );
