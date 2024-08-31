@@ -7,7 +7,7 @@ function Footer() {
       <div className="container footer-container">
         <div className="row">
           <div className="col footer-logo">
-            <img src="media/images/logo.svg" alt="Logo" />
+            <img src="/vite.svg" alt="Logo" />
             <p>Empowering your career journey with personalized guidance.</p>
           </div>
           <div className="col footer-col">

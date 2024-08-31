@@ -10,13 +10,13 @@ router.post('/signup', async(req,res)=>{
   try{
       const mentoruser=await prisma.userSchema.create({
           data:{
-              name:body.name,
+              name:body.username,
               lastname:body.lastname,
               email:body.email,
               password:body.password,
               lat:body.lat,
               long:body.long,
-              fieldofinterest:body.field,
+              fieldofinterest:body.fieldofinterest,
               gender:body.gender,
               age:body.age,
               phone:body.phone,

@@ -32,11 +32,11 @@ model UserSchema{
   password String
   lat String?
   long String?
-  phone Int
+  phone String
   state String
   currentstd String
-  age Int
+  age String
   gender String
   fieldofinterest String
-  socialmedia Json
+  socialmedia Json?
 }
