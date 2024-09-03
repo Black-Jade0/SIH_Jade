@@ -15,6 +15,7 @@ import { Basicquiz } from "./Components/basicquiz.jsx";
 import { Searchcareers } from "./Components/Searchcareers.jsx";
 import { RecoilRoot } from "recoil";
 import MoreinfoPage from "./Components/MoreinfoPage.jsx";
+import Signin from "./landing_page/signin/Signin.jsx";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/signin" element={<Signin />} />
                 <Route path="/product" element={<ProductPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/support" element={<SupportPage />} />

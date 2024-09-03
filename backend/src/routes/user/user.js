@@ -28,7 +28,7 @@ router.post('/signup', async(req,res)=>{
       });
       const userId=mentoruser.id;
       const token=jwt.sign({userId},JWT_PASSWORD);
-      res.json({message:"User created successfully",
+      res.status(200).json({message:"User created successfully",
           token:token
       })
   }catch(e){
@@ -41,7 +41,7 @@ router.post('/signup', async(req,res)=>{
 router.post('/signin',async (req,res)=>{
   const body=req.body;
   try{
-      const founduser=await prisma.userSchema.findOne({
+      const founduser=await prisma.userSchema.findFirst({
           where:{
               email:body.email,
               password:body.password
@@ -49,7 +49,7 @@ router.post('/signin',async (req,res)=>{
       })
       if(founduser){
           const token=jwt.sign({userId:founduser.id},JWT_PASSWORD);
-          res.json({
+          res.status(200).json({
               message:"Signed in successfully ",
               token:token
           })

@@ -36,7 +36,7 @@ router.post('/signup', async(req,res)=>{
 router.post('/signin',async (req,res)=>{
     const body=req.body;
     try{
-        const founduser=await prisma.mentorSchema.findOne({
+        const founduser=await prisma.mentorSchema.findFirst({
             where:{
                 email:body.email,
                 password:body.password

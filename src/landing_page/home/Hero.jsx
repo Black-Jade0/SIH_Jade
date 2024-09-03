@@ -15,9 +15,15 @@ function Hero() {
                 Online platform to access the untold stories, career paths for a
                 better tomorrow
             </p>
+            <div>
             <Link className="nav-link active" aria-current="page" to="/signup">
                 <button className="hero-button btn btn-primary">Signup</button>
             </Link>
+            <Link className="nav-link active" aria-current="page" to="/signin">
+                <button className="hero-button btn btn-primary">SignIn</button>
+            </Link>
+            </div>
+            
         </div>
     );
 }
