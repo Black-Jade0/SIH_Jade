@@ -16,9 +16,9 @@ function Signin() {
         <SigninTypeSelection setSigninType={setSigninType} />
       ) : signinType === "student" ? (
         <StudentSignin/>
-      ) : signinType === "admin" ? (
+      ) : signinType === "mentor" ? (
         <MentorSignup />
-      ) : signinType === "mentor" (
+      ) : (
         <AdminSignup />
       )}
     </div>

@@ -6,7 +6,7 @@ import './style.css';
 function AdminSignup() {
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-5">School Registration</h1>
+      <h1 className="text-center mb-5">Admin Registration</h1>
       <form>
         {/* Add form fields for school registration */}
         <div className="mb-3">

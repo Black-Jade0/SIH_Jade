@@ -19,19 +19,12 @@ function SignupTypeSelection({ setSignupType }) {
         <div className="col-4 text-center">
           <button
             className="btn btn-secondary mb-3"
-            onClick={() => setSignupType("counselor")}
+            onClick={() => setSignupType("mentor")}
           >
             Counselor
           </button>
         </div>
-        <div className="col-4 text-center">
-          <button
-            className="btn btn-success mb-3"
-            onClick={() => setSignupType("school")}
-          >
-            School
-          </button>
-        </div>
+        
       </div>
     </div>
   );

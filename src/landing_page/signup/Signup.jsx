@@ -9,17 +9,17 @@ import './style.css';
 
 function Signup() {
   const [signupType, setSignupType] = useState("");
-
+  console.log("signupType is: ",signupType)
   return (
     <div className="container">
+      
       {!signupType ? (
         <SignupTypeSelection setSignupType={setSignupType} />
       ) : signupType === "student" ? (
         <StudentSignup />
-      ) : signupType === "admin" ? (
+      ) : signupType === "mentor" ? (
         <MentorSignup />
-      ) : signupType === "mentor" (
-        <AdminSignup />
+      ) : ( null
       )}
     </div>
   );

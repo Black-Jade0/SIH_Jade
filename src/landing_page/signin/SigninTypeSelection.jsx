@@ -19,7 +19,7 @@ function SigninTypeSelection({ setSigninType }) {
         <div className="col-4 text-center">
           <button
             className="btn btn-secondary mb-3"
-            onClick={() => setSigninType("counselor")}
+            onClick={() => setSigninType("mentor")}
           >
             Counselor
           </button>
@@ -27,9 +27,9 @@ function SigninTypeSelection({ setSigninType }) {
         <div className="col-4 text-center">
           <button
             className="btn btn-success mb-3"
-            onClick={() => setSigninType("school")}
+            onClick={() => setSigninType("admin")}
           >
-            School
+            Admin
           </button>
         </div>
       </div>
