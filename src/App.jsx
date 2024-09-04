@@ -17,6 +17,8 @@ import { RecoilRoot } from "recoil";
 import MoreinfoPage from "./Components/MoreinfoPage.jsx";
 import Signin from "./landing_page/signin/Signin.jsx";
 import FetchMoreInfoPage from "./Components/fetchMoreInfopage.jsx";
+import MultiCourses from "./Components/Multicourses.jsx";
+import IITlink from "./Components/Multicourses/IITkanpur.jsx";
 
 
 function App() {
@@ -36,7 +38,8 @@ function App() {
                 <Route path="/searchcareers" element={<Searchcareers />} />
                 <Route path="/traits/:code/:key" element={<FetchMoreInfoPage />} />
                 <Route path="/moreinfopage/:code" element={<MoreinfoPage />} />
-                
+                <Route path="/multicourses" element={<MultiCourses />} />
+                <Route path="/multicourses/iitkanpur" element={<IITlink />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
