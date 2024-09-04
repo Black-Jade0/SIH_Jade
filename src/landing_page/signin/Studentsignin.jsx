@@ -22,6 +22,7 @@ function StudentSignin() {
       try {
         const baseURL = `http://localhost:3000/user/signin`;
         const response = await axios.post(baseURL,studentInfo);
+        localStorage.setItem("token",response.data.token);
         setFlag(!flag)
         setRes(response.status);
         
@@ -68,6 +69,7 @@ function StudentSignin() {
           Signin
         </button>
       </form>
+      {/*Add a dialog box*/}
       {flag&&res!=200?<div>Unable to login</div>:null}
     </div>
   );

@@ -16,6 +16,8 @@ import { Searchcareers } from "./Components/Searchcareers.jsx";
 import { RecoilRoot } from "recoil";
 import MoreinfoPage from "./Components/MoreinfoPage.jsx";
 import Signin from "./landing_page/signin/Signin.jsx";
+import FetchMoreInfoPage from "./Components/fetchMoreInfopage.jsx";
+
 
 function App() {
     return (
@@ -32,7 +34,9 @@ function App() {
                 <Route path="/creativetools" element={<CreativeTools />} />
                 <Route path="/basicquiz" element={<Basicquiz />} />
                 <Route path="/searchcareers" element={<Searchcareers />} />
+                <Route path="/traits/:code/:key" element={<FetchMoreInfoPage />} />
                 <Route path="/moreinfopage/:code" element={<MoreinfoPage />} />
+                
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

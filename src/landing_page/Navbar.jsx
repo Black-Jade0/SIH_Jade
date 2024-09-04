@@ -34,7 +34,11 @@ function Navbar() {
                                 Support
                             </Link>
                         </li>
-                        
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/creativetools">
+                                Creative Tools
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

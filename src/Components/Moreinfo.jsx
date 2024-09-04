@@ -1,4 +1,7 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Moreinfo = ({ career }) => {
   if (!career) {
@@ -61,9 +64,10 @@ const Moreinfo = ({ career }) => {
           <ul>
             {career.resources.resource.map((res, index) => (
               <li key={index}>
-                <a href={res.href} target="_blank" rel="noopener noreferrer">
+                {/* <a href={res.href} target="_blank" rel="noopener noreferrer">
                   {res.title}
-                </a>
+                </a> */}
+                <Link to={`/traits/${career.code}/${res.title}`}>{res.title}</Link> 
               </li>
             ))}
           </ul>
@@ -79,5 +83,6 @@ const Moreinfo = ({ career }) => {
     </div>
   );
 };
+
 
 export default Moreinfo;

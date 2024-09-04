@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import CareerList from "./Careerlist";
+import CareerList from "./CareerList";
 import { useRecoilState } from "recoil";
 import { keywordatom } from "../atoms/keywordatom";
 

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import './style.css';
 import axios from "axios";
+import { CreativeTools } from "../../Components/Creativetools";
 function StudentRegistration() {
   const [studentInfo, setInfo] = useState({
     username: "",
@@ -27,6 +28,7 @@ function StudentRegistration() {
       [key]: e.target.value,
     }));
   }
+  const [res,setRes]=useState(404);
   const handleClick=async (e)=>{
     e.preventDefault();
     if(studentInfo.email.trim()&&studentInfo.username.trim&&studentInfo.lastname.trim()){
@@ -34,10 +36,17 @@ function StudentRegistration() {
       try {
         const baseURL = `http://localhost:3000/user/signup`;
         const response = await axios.post(baseURL,studentInfo);
+        localStorage.setItem("token",response.data.token);
+        setRes(response.status);
     } catch (error) {
         console.error("Error: ", error);
     }
     }
+  }
+  if(res==200){
+    return(
+        <CreativeTools/>
+    )
   }
 
   return (
@@ -180,6 +189,7 @@ function StudentRegistration() {
           Register
         </button>
       </form>
+      {/*Add a dialog box to show whether signup was succesfull or not*/}
     </div>
   );
 }

@@ -23,7 +23,7 @@ const CareerList = ({ careers }) => {
               <strong>Link:</strong>{' '}
               <Link to={`/moreinfopage/${career.code}`}>More Info</Link>
               {/* <a href={career.href} target="_blank" rel="noopener noreferrer">
-              </a> */}
+              </a> */}  
             </p>
             <p>
               <strong>Tags:</strong>

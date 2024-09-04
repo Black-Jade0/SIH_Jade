@@ -116,7 +116,7 @@ router.get('/api/search',async (req, res) => {
     const { code } = req.query; // Get the keyword from the request query
     const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}`;
     const username = 'career_guidance_plat';
-    const password = '6694ejh'; // Replace with your O*NET password
+    const password = '6694ejh';
   
     try {
       // Make the request to the O*NET API with the required headers
@@ -135,6 +135,34 @@ router.get('/api/search',async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
+
+  router.get('/api/search/moreinfo/res', async(req,res)=>{
+    const { code,key } = req.query;
+
+  const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}/${key}`;
+
+  const username = 'career_guidance_plat';
+    const password = '6694ejh';
+
+  try {
+    
+    const response = await axios.get(baseURL, {
+      auth: { username, password },
+      headers: {
+        'User-Agent': 'nodejs-OnetWebService/1.00 (bot)',
+        'Accept': 'application/json', 
+      },
+      timeout: 10000,
+      maxRedirects: 0,
+    });
+
+    res.send(response.data);
+  } catch (error) {
+    console.error('Error during O*NET API request:', error.response?.data || error.message);
+    res.status(500).json({ error: error.response?.data || error.message });
+  }
+
+  })
 
   
 module.exports=router;
