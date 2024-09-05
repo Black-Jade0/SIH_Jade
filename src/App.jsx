@@ -19,12 +19,14 @@ import Signin from "./landing_page/signin/Signin.jsx";
 import FetchMoreInfoPage from "./Components/fetchMoreInfopage.jsx";
 import MultiCourses from "./Components/Multicourses.jsx";
 import IITlink from "./Components/Multicourses/IITkanpur.jsx";
+import Navbar from "./landing_page/Navbar.jsx";
 
 
 function App() {
     return (
         <RecoilRoot>
         <Router>
+            <Navbar/>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
