@@ -1,0 +1,19 @@
+.program-list {
+    margin: 20px 0;
+  }
+  
+  .program-list h3 {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .program-list ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .program-list ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+  }
+  

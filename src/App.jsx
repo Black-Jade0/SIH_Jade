@@ -19,6 +19,8 @@ import Signin from "./landing_page/signin/Signin.jsx";
 import FetchMoreInfoPage from "./Components/fetchMoreInfopage.jsx";
 import MultiCourses from "./Components/Multicourses.jsx";
 import IITlink from "./Components/Multicourses/IITkanpur.jsx";
+import OtherIITs from "./Components/Multicourses/OtherIITs.jsx";
+import Quizlandinpage from "./Components/Quiz/Quizlandingpage.jsx";
 
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
                 <Route path="/moreinfopage/:code" element={<MoreinfoPage />} />
                 <Route path="/multicourses" element={<MultiCourses />} />
                 <Route path="/multicourses/iitkanpur" element={<IITlink />} />
+                <Route path="/multicourses/otheriits" element={<OtherIITs />} />
+                <Route path="/user/newquiz" element={<Quizlandinpage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
