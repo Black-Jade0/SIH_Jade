@@ -21,12 +21,14 @@ import MultiCourses from "./Components/Multicourses.jsx";
 import IITlink from "./Components/Multicourses/IITkanpur.jsx";
 import OtherIITs from "./Components/Multicourses/OtherIITs.jsx";
 import Quizlandinpage from "./Components/Quiz/Quizlandingpage.jsx";
+import  Navbar  from "./landing_page/Navbar.jsx";
 
 
 function App() {
     return (
         <RecoilRoot>
         <Router>
+            <Navbar/>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
