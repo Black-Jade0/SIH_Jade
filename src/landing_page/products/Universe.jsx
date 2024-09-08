@@ -11,15 +11,15 @@ function Universe() {
           partner platforms
         </p>
 
-        <div className="col-4 p-3 mt-5">
+        <div className="col-4 p-3 mt-5 flex flex-col justify-center items-center gap-4">
           <img src="information-not-found-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg " style={{height : "150px" , width: "150px"}} />
           <p className="text-small text-muted">Real time chat + doubt solving</p>
         </div>
-        <div className="col-4 p-3 mt-5">
+        <div className="col-4 p-3 mt-5 flex flex-col justify-center items-center gap-4">
           <img src="images.jpg" style={{height : "150px" , width: "150px"}} />
           <p className="text-small text-muted">Data Analysis for Career Trends</p>
         </div>
-        <div className="col-4 p-3 mt-5">
+        <div className="col-4 p-3 mt-5 flex flex-col justify-center items-center gap-4">
           <img src="What-After-graduation.jpg" style={{height : "150px" , width: "150px"}}  />
           <p className="text-small text-muted">Degree Utilization Insights</p>
         </div>
@@ -35,12 +35,6 @@ function Universe() {
           <img src="media/images/smallcaseLogo.png" />
           <p className="text-small text-muted">Thematic investment platform</p>
         </div> */}
-        <button
-          className="p-2 btn btn-primary fs-5 mb-5"
-          style={{ width: "15%", margin: "0 auto" }}
-        >
-          Signup Now
-        </button>
       </div>
     </div>
   );
