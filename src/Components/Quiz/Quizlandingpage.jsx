@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { questions } from "./questions";
-
+import axios from "axios"
+import { BACKENDBASEURL } from "../../config";
 
 const Quizlandinpage = () => {
   const [response, setResponse] = useState([]);
@@ -88,8 +89,23 @@ const Quizlandinpage = () => {
         }
       });
   }
+  //authmiddleware is not working/causing some problem !!!
   useEffect(() => {
-    //yahan pe updated state variables hai jo send karne hai backend for storing data!kk
+    async function senddatatobackend(){
+      try{
+        const res=await axios.post(BACKENDBASEURL,{
+        subjects:subjects,
+        differentsubjects:differenetsub
+      },{
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }  
+      })
+    }catch(e){
+        console.log("Got the Error:",e)
+      }
+    }
+    senddatatobackend();
     console.log("Marks obtained: ",subjects)
     console.log("Custom responses: ", differenetsub);
   }, [differenetsub,subjects]);

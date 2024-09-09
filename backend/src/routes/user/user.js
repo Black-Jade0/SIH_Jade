@@ -5,6 +5,8 @@ const { PrismaClient } = require("@prisma/client");
 const jwt=require("jsonwebtoken")
 const router=express.Router()
 const prisma=new PrismaClient();
+const authMiddleware=require('../../middleware/index');
+const { Next } = require("react-bootstrap/esm/PageItem");
 router.post('/signup', async(req,res)=>{
   const body= req.body;
   try{
@@ -163,6 +165,26 @@ router.get('/api/search',async (req, res) => {
   }
 
   })
-
+  router.post('/quiz/data',authMiddleware(req,res),async (req,res)=>{
+    const {differentsubjects, subjects}=req.body
+    const {userId}=req.userId;
+    
+    try{
+      const newdetails=await prisma.userSchema.updateMany({
+      where:{
+        id:userId
+      },
+      data:{
+        Stemresponse:subjects,
+        Interestbasedresponse:differentsubjects
+      }
+    })
+    res.status(200).json({message:"Data set successfully !"})
+  }catch(e){
+      console.log("Got the Error: ",e)
+      res.status(411);
+      res.json({message:"Got the error while setting up data"})
+    }
+  })
   
 module.exports=router;
