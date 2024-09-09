@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { questions } from "./questions";
 
+
 const Quizlandinpage = () => {
   const [response, setResponse] = useState([]);
   
@@ -88,7 +89,7 @@ const Quizlandinpage = () => {
       });
   }
   useEffect(() => {
-    //yahan pe updated state variables hai jo send karne hai backend for storing data!
+    //yahan pe updated state variables hai jo send karne hai backend for storing data!kk
     console.log("Marks obtained: ",subjects)
     console.log("Custom responses: ", differenetsub);
   }, [differenetsub,subjects]);
@@ -113,6 +114,7 @@ const Quizlandinpage = () => {
       })}
       <button onClick={handleClick}>Submit</button>
     </div>
+    
   );
 };
 
