@@ -1,21 +1,25 @@
-const { jwt }= require("jsonwebtoken")
+const jwt = require("jsonwebtoken")
 const { JWT_PASSWORD } =require("../config");
-const authMiddleware=(req,res,next)=>{
+
+const authMiddleware=async (req,res,next)=>{
     const authheader=req.headers.authorization;
     if(!authheader||!authheader.startsWith('Bearer ')){
         return res.status(403).json({})
     }
     const token=authheader.split(' ')[1]
       try{
-        const decoded=jwt.decode(token,JWT_PASSWORD)
+        const decoded= jwt.verify(token,JWT_PASSWORD)
+        console.log(decoded.userId)
        if(decoded.userId){
         req.userId=decoded.userId
-        next()
+        next();
       }
         else{return res.status(403).json({})}
       } 
       catch(err){
-        console.log(req.userId)
+        console.log({authheader,
+          message2:"Got the error",err}
+        )
         return res.status(403).json({message:"Authorization failed !"})
       }
 }

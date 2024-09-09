@@ -36,6 +36,7 @@ function StudentRegistration() {
       try {
         const baseURL = `http://localhost:3000/user/signup`;
         const response = await axios.post(baseURL,studentInfo);
+        //It is not persisting ?
         localStorage.setItem("token",response.data.token);
         setRes(response.status);
     } catch (error) {

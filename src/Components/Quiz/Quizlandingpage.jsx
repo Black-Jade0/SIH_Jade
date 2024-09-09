@@ -5,7 +5,7 @@ import { BACKENDBASEURL } from "../../config";
 
 const Quizlandinpage = () => {
   const [response, setResponse] = useState([]);
-  
+  const [flag,setFlag]=useState(false);
   const handleInputChange = (e, id,type) => {
     setResponse((prevResponse) => {
       const existingResponseIndex = prevResponse.findIndex(
@@ -89,11 +89,11 @@ const Quizlandinpage = () => {
         }
       });
   }
-  //authmiddleware is not working/causing some problem !!!
+  
   useEffect(() => {
     async function senddatatobackend(){
       try{
-        const res=await axios.post(BACKENDBASEURL,{
+        const res=await axios.post(BACKENDBASEURL+"/user/quiz/data",{
         subjects:subjects,
         differentsubjects:differenetsub
       },{
@@ -105,9 +105,11 @@ const Quizlandinpage = () => {
         console.log("Got the Error:",e)
       }
     }
+    if(flag)
     senddatatobackend();
     console.log("Marks obtained: ",subjects)
     console.log("Custom responses: ", differenetsub);
+    setFlag(true);
   }, [differenetsub,subjects]);
   return (
     <div>
