@@ -1,15 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Chatbot from "../ChatBot";
 
 function Navbar() {
     return (
-        <nav className="bg-gray-100 w-screen rounded-lg px-3 py-2  h-[10%] border-b-2">
+        <nav className="bg-gray-100 w-screen rounded-lg px-3 py-2 h-[10%] border-b-2">
             <div className="flex flex-row container h-full px-4 py-2 mx-auto w-full justify-between items-center">
                 <Link
                     className="text-xl flex justify-center items-center h-full w-auto text-black"
                     to="/"
                 >
-                    <i className="fa-solid w-auto fa-magnifying-glass"></i>{" "}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="icon"
+                        role="img"
+                        aria-hidden="true"
+                        className="Svg-sc-ytk21e-0 iYxpxA home-active-icon" // Changed 'class' to 'className'
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732l-7.5-4.33z"></path>
+                    </svg>
                 </Link>
                 <div className="flex flex-row items-center h-full">
                     <ul className="flex items-center space-x-6 h-full w-full">
@@ -70,6 +80,7 @@ function Navbar() {
                     </Link>
                 </div>
             </div>
+            <Chatbot/>
         </nav>
     );
 }

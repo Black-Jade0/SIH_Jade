@@ -31,7 +31,7 @@ function Hero() {
             </div>
             <div className="Home-image">
                 <img
-                    src="./public/desktop.svg"
+                    src="./public/desktop2.svg"
                     alt=""
                 />
             </div>
