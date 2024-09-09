@@ -1,5 +1,5 @@
-import { jwt } from "jsonwebtoken"
-import { JWT_PASSWORD } from "../db/config";
+const { jwt }= require("jsonwebtoken")
+const { JWT_PASSWORD } =require("../config");
 const authMiddleware=(req,res,next)=>{
     const authheader=req.headers.authorization;
     if(!authheader||!authheader.startsWith('Bearer ')){
