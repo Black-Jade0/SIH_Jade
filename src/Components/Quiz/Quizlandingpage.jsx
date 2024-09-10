@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { questions } from "./questions";
 import axios from "axios"
 import { BACKENDBASEURL } from "../../config";
-
+import Quizapicall from "./Quizapicall";
+//Because of some reason token is getting deleted ! find the cause or use another method for auth
 const Quizlandinpage = () => {
   const [response, setResponse] = useState([]);
   const [flag,setFlag]=useState(false);
-  const handleInputChange = (e, id,type) => {
+  const [showQuizComponent, setShowQuizComponent] = useState(false); // State to control rendering
+
+  const handleInputChange = (e, id,type,ques) => {
     setResponse((prevResponse) => {
       const existingResponseIndex = prevResponse.findIndex(
         (res) => res.id === id
@@ -19,7 +22,7 @@ const Quizlandinpage = () => {
       } else {
 
         // Add new response with new ID
-        return [...prevResponse, { id:id, answer: e.target.value, marks:0,type:type }];
+        return [...prevResponse, { id:id, answer: e.target.value, marks:0,type:type,queasked:ques }];
 
       }
     });
@@ -81,7 +84,7 @@ const Quizlandinpage = () => {
                 return updatedResponses;
               } else {
                 // Add new response
-                const newResponse = [...prevResponse, { id: item.id, answer: item.answer, marks: 100 }];
+                const newResponse = [...prevResponse, { id: item.id, answer: item.answer, marks: 100,queasked:item.queasked }];
                 
                 return newResponse;
               }
@@ -101,14 +104,24 @@ const Quizlandinpage = () => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
       }  
       })
+      if(res.status==200){
+        window.alert("Response submitted successfully !") 
+        setShowQuizComponent(true); // Set the state to true to render the Quizapicall component
+        location.reload();//This is to reset the state variables which are storing responses becuase 
+        //without reseting onclicking the submit button response is recalculated and 
+        //marks gets updated !
+      }else{
+        window.alert("Error !") 
+        location.reload();
+      }
+                          
     }catch(e){
         console.log("Got the Error:",e)
       }
     }
     if(flag)
     senddatatobackend();
-    console.log("Marks obtained: ",subjects)
-    console.log("Custom responses: ", differenetsub);
+    
     setFlag(true);
   }, [differenetsub,subjects]);
   return (
@@ -123,7 +136,7 @@ const Quizlandinpage = () => {
             <br />
             <input
               onChange={(e) => {
-                handleInputChange(e, item.id,item.type);
+                handleInputChange(e, item.id,item.type,item.Question);
               }}
             ></input>
             <br />
@@ -131,6 +144,8 @@ const Quizlandinpage = () => {
         );
       })}
       <button onClick={handleClick}>Submit</button>
+      {showQuizComponent && <Quizapicall subjects={subjects} differenetsub={differenetsub} />}
+
     </div>
     
   );

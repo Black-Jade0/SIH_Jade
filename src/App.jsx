@@ -22,6 +22,7 @@ import IITlink from "./Components/Multicourses/IITkanpur.jsx";
 import OtherIITs from "./Components/Multicourses/OtherIITs.jsx";
 import Quizlandinpage from "./Components/Quiz/Quizlandingpage.jsx";
 import Navbar from "./landing_page/Navbar.jsx";
+import Quizapicall from "./Components/Quiz/Quizapicall.jsx";
 
 function App() {
     return (
@@ -57,6 +58,7 @@ function App() {
                         element={<OtherIITs />}
                     />
                     <Route path="/user/newquiz" element={<Quizlandinpage />} />
+                    <Route path='/user/quizcall' element={<Quizapicall/>}/>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer />

@@ -3,13 +3,15 @@ const { JWT_PASSWORD } =require("../config");
 
 const authMiddleware=async (req,res,next)=>{
     const authheader=req.headers.authorization;
+    console.log({"authheader is: ":authheader})
     if(!authheader||!authheader.startsWith('Bearer ')){
         return res.status(403).json({})
     }
     const token=authheader.split(' ')[1]
       try{
         const decoded= jwt.verify(token,JWT_PASSWORD)
-        console.log(decoded.userId)
+        console.log({"Got the decoded thing with: ":decoded})
+        console.log({"Got the userId thing with: ":decoded.userId})
        if(decoded.userId){
         req.userId=decoded.userId
         next();
@@ -17,7 +19,7 @@ const authMiddleware=async (req,res,next)=>{
         else{return res.status(403).json({})}
       } 
       catch(err){
-        console.log({authheader,
+        console.log({"authheader is: ":authheader,
           message2:"Got the error",err}
         )
         return res.status(403).json({message:"Authorization failed !"})
