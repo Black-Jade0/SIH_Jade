@@ -124,6 +124,11 @@ const Quizlandinpage = () => {
     
     setFlag(true);
   }, [differenetsub,subjects]);
+  if(showQuizComponent){
+    return(
+      <Quizapicall subjects={subjects} differenetsub={differenetsub} />
+    )
+  }
   return (
     <div>
       <h2>Acadmeics</h2>
@@ -144,7 +149,6 @@ const Quizlandinpage = () => {
         );
       })}
       <button onClick={handleClick}>Submit</button>
-      {showQuizComponent && <Quizapicall subjects={subjects} differenetsub={differenetsub} />}
 
     </div>
     
