@@ -3,15 +3,15 @@ const { JWT_PASSWORD } =require("../config");
 
 const authMiddleware=async (req,res,next)=>{
     const authheader=req.headers.authorization;
-    console.log({"authheader is: ":authheader})
+    // console.log({"authheader is: ":authheader})
     if(!authheader||!authheader.startsWith('Bearer ')){
         return res.status(403).json({})
     }
     const token=authheader.split(' ')[1]
       try{
         const decoded= jwt.verify(token,JWT_PASSWORD)
-        console.log({"Got the decoded thing with: ":decoded})
-        console.log({"Got the userId thing with: ":decoded.userId})
+        // console.log({"Got the decoded thing with: ":decoded})
+        // console.log({"Got the userId thing with: ":decoded.userId})
        if(decoded.userId){
         req.userId=decoded.userId
         next();

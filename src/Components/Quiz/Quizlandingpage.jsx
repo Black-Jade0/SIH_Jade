@@ -107,12 +107,12 @@ const Quizlandinpage = () => {
       if(res.status==200){
         window.alert("Response submitted successfully !") 
         setShowQuizComponent(true); // Set the state to true to render the Quizapicall component
-        location.reload();//This is to reset the state variables which are storing responses becuase 
+        //This is to reset the state variables which are storing responses becuase 
         //without reseting onclicking the submit button response is recalculated and 
         //marks gets updated !
       }else{
         window.alert("Error !") 
-        location.reload();
+        
       }
                           
     }catch(e){

@@ -285,5 +285,12 @@ export const questions = [
       "Question": "What kind of work environment do you prefer?",
       "Answer": "",
       "marks": 0
+  },
+  {
+      "id": "42",
+      "type": "Intrest based",
+      "Question": "Do you like the type of job which include analytical thinking and problem solving ?",
+      "Answer": "",
+      "marks": 0
   }
 ];
