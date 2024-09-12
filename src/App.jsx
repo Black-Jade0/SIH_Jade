@@ -23,13 +23,15 @@ import OtherIITs from "./Components/Multicourses/OtherIITs.jsx";
 import Quizlandinpage from "./Components/Quiz/Quizlandingpage.jsx";
 import Navbar from "./landing_page/Navbar.jsx";
 import Quizapicall from "./Components/Quiz/Quizapicall.jsx";
+import Resourcelandingpage from "./Components/ResourcePortal/Resourcelandingpage.jsx";
+import Search from "./Components/ResourcePortal/Search.jsx";
 
 function App() {
     return (
         <RecoilRoot>
             <Router>
                 <Navbar />
-                <div className="w-screen min-h-[80%]">
+                <div className="min-h-screen">
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
@@ -78,7 +80,6 @@ function App() {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
-
                 <Footer />
             </Router>
         </RecoilRoot>

@@ -111,8 +111,14 @@ const Quizlandinpage = () => {
         //without reseting onclicking the submit button response is recalculated and 
         //marks gets updated !
       }else{
-        window.alert("Error !") 
+        subjects.setSubjects({
+          maths:0,
+          arts:0,
+          physicaleducation:0,
+          science:0
+        })
         
+        window.alert("Error !") 
       }
                           
     }catch(e){
