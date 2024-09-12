@@ -23,48 +23,43 @@ import OtherIITs from "./Components/Multicourses/OtherIITs.jsx";
 import Quizlandinpage from "./Components/Quiz/Quizlandingpage.jsx";
 import Navbar from "./landing_page/Navbar.jsx";
 import Quizapicall from "./Components/Quiz/Quizapicall.jsx";
+import Resourcelandingpage from "./Components/ResourcePortal/Resourcelandingpage.jsx";
+import Search from "./Components/ResourcePortal/Search.jsx";
 
 function App() {
-    return (
-        <RecoilRoot>
-            <Router>
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route path="/signin" element={<Signin />} />
-                    <Route path="/product" element={<ProductPage />} />
-                    <Route path="/pricing" element={<PricingPage />} />
-                    <Route path="/support" element={<SupportPage />} />
-                    <Route path="/creativetools" element={<CreativeTools />} />
-                    <Route path="/basicquiz" element={<Basicquiz />} />
-                    <Route path="/searchcareers" element={<Searchcareers />} />
-                    <Route
-                        path="/traits/:code/:key"
-                        element={<FetchMoreInfoPage />}
-                    />
-                    <Route
-                        path="/moreinfopage/:code"
-                        element={<MoreinfoPage />}
-                    />
-                    <Route path="/multicourses" element={<MultiCourses />} />
-                    <Route
-                        path="/multicourses/iitkanpur"
-                        element={<IITlink />}
-                    />
-                    <Route
-                        path="/multicourses/otheriits"
-                        element={<OtherIITs />}
-                    />
-                    <Route path="/user/newquiz" element={<Quizlandinpage />} />
-                    <Route path='/user/quizcall' element={<Quizapicall/>}/>
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-                <Footer />
-            </Router>
-        </RecoilRoot>
-    );
+  return (
+    <RecoilRoot>
+      <Router>
+        <Navbar />
+        <div className="min-h-screen">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/product" element={<ProductPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/creativetools" element={<CreativeTools />} />
+            <Route path="/basicquiz" element={<Basicquiz />} />
+            <Route path="/searchcareers" element={<Searchcareers />} />
+            <Route path="/traits/:code/:key" element={<FetchMoreInfoPage />} />
+            <Route path="/moreinfopage/:code" element={<MoreinfoPage />} />
+            <Route path="/multicourses" element={<MultiCourses />} />
+            <Route path="/multicourses/iitkanpur" element={<IITlink />} />
+            <Route path="/multicourses/otheriits" element={<OtherIITs />} />
+            <Route path="/user/newquiz" element={<Quizlandinpage />} />
+            <Route path="/user/quizcall" element={<Quizapicall />} />
+            <Route path="/reslandingpage" element={<Resourcelandingpage />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </Router>
+    </RecoilRoot>
+  );
 }
 
 export default App;
