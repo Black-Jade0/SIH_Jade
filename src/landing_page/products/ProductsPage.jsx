@@ -21,12 +21,14 @@ function ProductsPage() {
             />
             <RightSection
                 imageURL="For-blog_Monitor-Stocks-02.jpg"
-                productName="Portfolio Analysis"
-                productDesription=" Implement an AI-driven portfolio scanner that evaluates a student’s projects and skills, 
-        offering targeted career suggestions and improvement tips."
+                productName="Virtual Internship"
+                productDesription=""
                 learnMore="#"
                 imageStyle={{ width: "500px", height: "450px" }}
             />
+
+            {/* Vocational Training and all */}
+
             <LeftSection
                 imageURL=" leaderboard-illustration.svg"
                 productName="Competency- Based Assessments"
@@ -40,6 +42,9 @@ results can influence career recommendations."
                 appStore="#"
                 imageStyle={{ width: "500px", height: "450px" }}
             />
+
+            {/* How a day looks like , and.... */}
+
             <RightSection
                 imageURL="community-driven-development.jpg"
                 productName="Community-Driven Experience Sharing"
@@ -49,7 +54,7 @@ results can influence career recommendations."
             />
             <LeftSection
                 imageURL="Career-Exploration-Games-for-High-Schoolers-pin.jpg"
-                productName="Virtual Career Simulation Game"
+                productName="School Integration"
                 productDesription="Create a virtual simulation game where students can experience different careers, understanding the tasks, challenges, and rewards associated with each profession."
                 tryDemo="#"
                 learnMore="#"
@@ -60,7 +65,7 @@ results can influence career recommendations."
             <p className="text-center mt-5 mb-5">
                 Want to explore more? <a href="#">Click here!</a>
             </p>
-            <Universe />
+            {/* <Universe /> */}
         </div>
     );
 }
