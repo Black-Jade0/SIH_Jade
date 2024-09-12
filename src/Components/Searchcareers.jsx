@@ -28,7 +28,7 @@ export const Searchcareers = () => {
     };
 
     return (
-        <div>
+        <div className="w-screen">
             <div label={"div 1"} style={{ padding: "2px", margin: "4px" }}>
                 <div
                     style={{

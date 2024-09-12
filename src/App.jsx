@@ -29,38 +29,56 @@ function App() {
         <RecoilRoot>
             <Router>
                 <Navbar />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route path="/signin" element={<Signin />} />
-                    <Route path="/product" element={<ProductPage />} />
-                    <Route path="/pricing" element={<PricingPage />} />
-                    <Route path="/support" element={<SupportPage />} />
-                    <Route path="/creativetools" element={<CreativeTools />} />
-                    <Route path="/basicquiz" element={<Basicquiz />} />
-                    <Route path="/searchcareers" element={<Searchcareers />} />
-                    <Route
-                        path="/traits/:code/:key"
-                        element={<FetchMoreInfoPage />}
-                    />
-                    <Route
-                        path="/moreinfopage/:code"
-                        element={<MoreinfoPage />}
-                    />
-                    <Route path="/multicourses" element={<MultiCourses />} />
-                    <Route
-                        path="/multicourses/iitkanpur"
-                        element={<IITlink />}
-                    />
-                    <Route
-                        path="/multicourses/otheriits"
-                        element={<OtherIITs />}
-                    />
-                    <Route path="/user/newquiz" element={<Quizlandinpage />} />
-                    <Route path='/user/quizcall' element={<Quizapicall/>}/>
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <div className="w-screen min-h-[80%]">
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/signin" element={<Signin />} />
+                        <Route path="/product" element={<ProductPage />} />
+                        <Route path="/pricing" element={<PricingPage />} />
+                        <Route path="/support" element={<SupportPage />} />
+                        <Route
+                            path="/creativetools"
+                            element={<CreativeTools />}
+                        />
+                        <Route path="/basicquiz" element={<Basicquiz />} />
+                        <Route
+                            path="/searchcareers"
+                            element={<Searchcareers />}
+                        />
+                        <Route
+                            path="/traits/:code/:key"
+                            element={<FetchMoreInfoPage />}
+                        />
+                        <Route
+                            path="/moreinfopage/:code"
+                            element={<MoreinfoPage />}
+                        />
+                        <Route
+                            path="/multicourses"
+                            element={<MultiCourses />}
+                        />
+                        <Route
+                            path="/multicourses/iitkanpur"
+                            element={<IITlink />}
+                        />
+                        <Route
+                            path="/multicourses/otheriits"
+                            element={<OtherIITs />}
+                        />
+                        <Route
+                            path="/user/newquiz"
+                            element={<Quizlandinpage />}
+                        />
+                        <Route
+                            path="/user/quizcall"
+                            element={<Quizapicall />}
+                        />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </div>
+
                 <Footer />
             </Router>
         </RecoilRoot>
