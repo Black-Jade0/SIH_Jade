@@ -77,9 +77,15 @@ function App() {
                             path="/user/quizcall"
                             element={<Quizapicall />}
                         />
+                        <Route
+                            path="/reslandingpage"
+                            element={<Resourcelandingpage />}
+                        />
+                        <Route path="/search" element={<Search />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
+
                 <Footer />
             </Router>
         </RecoilRoot>
