@@ -16,7 +16,9 @@ const CareerList = ({ careers }) => {
                         const response = await axios.get(
                             `http://localhost:3000/images/searchImage`,
                             {
-                                params: { query: career.title },
+                                params: {
+                                    query: career.title,
+                                },
                             }
                         );
                         return {
@@ -59,24 +61,23 @@ const CareerList = ({ careers }) => {
                 {careers.career.map((career) => (
                     <li
                         key={career.code}
-                        className="career-item flex flex-col w-[15%] border-black rounded-md"
+                        className="career-item flex flex-col w-[15%] border-black rounded-md gap-1"
                     >
                         <div>
                             <img
+                                className="rounded-md"
                                 src={
                                     images[career.title] || "fallback-image-url"
-                                } // Replace with your fallback image URL
-                                alt={career.title}
+                                }
                             />
                         </div>
-                        <h1>{career.title}</h1>
-                        <p>
-                            <strong>Code:</strong> {career.code}
-                        </p>
+                        <h1>
+                            <b>{career.title}</b>
+                        </h1>
                         <p>
                             <strong>Link:</strong>{" "}
                             <Link to={`/moreinfopage/${career.code}`}>
-                                More Info
+                                <i> More Info</i>
                             </Link>
                         </p>
                         <p>
