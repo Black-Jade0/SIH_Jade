@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@botpress/webchat": "^2.1.12",
+    "@botpress/webchat-generator": "^0.2.11",
     "axios": "^1.7.6",
     "bootstrap": "^5.3.3",
     "cohere-ai": "^7.13.0",

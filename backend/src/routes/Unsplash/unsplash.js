@@ -1,6 +1,5 @@
 const express = require("express");
 const { createApi } = require("unsplash-js");
-const fetch = require("node-fetch"); // Ensure node-fetch is installed for Unsplash
 
 const router = express.Router();
 
@@ -19,7 +18,7 @@ router.get("/searchImage", async (req, res) => {
     }
 
     serverApi.search
-        .getPhotos({ query, per_page: 1 }) // Limit the search to 1 photo
+        .getPhotos({ query, per_page: 1, orientation: "landscape" }) // Limit the search to 1 photo
         .then((result) => {
             if (result.errors) {
                 res.status(500).json({ error: result.errors[0] });
