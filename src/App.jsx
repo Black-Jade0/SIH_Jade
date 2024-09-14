@@ -8,8 +8,6 @@ import PricingPage from "./landing_page/ReadourBlogs/PricingPage.jsx";
 import SupportPage from "./landing_page/support/SupportPage.jsx";
 import NotFound from "./landing_page/NotFound.jsx";
 import Footer from "./landing_page/Footer.jsx";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { CreativeTools } from "./Components/Creativetools.jsx";
 import { Basicquiz } from "./Components/basicquiz.jsx";
 import { Searchcareers } from "./Components/Searchcareers.jsx";
@@ -25,6 +23,11 @@ import Navbar from "./landing_page/Navbar.jsx";
 import Quizapicall from "./Components/Quiz/Quizapicall.jsx";
 import Resourcelandingpage from "./Components/ResourcePortal/Resourcelandingpage.jsx";
 import Search from "./Components/ResourcePortal/Search.jsx";
+import Careerdevtools from "./Components/ResourcePortal/careerdevtools.jsx";
+import Careerguides from "./Components/ResourcePortal/careerguides.jsx";
+import Edupathways from "./Components/ResourcePortal/edupathways.jsx";
+import Skills from "./Components/ResourcePortal/skills.jsx";
+import Studymaterials from "./Components/ResourcePortal/studymaterials.jsx";
 
 function App() {
     return (
@@ -82,6 +85,11 @@ function App() {
                             element={<Resourcelandingpage />}
                         />
                         <Route path="/search" element={<Search />} />
+                        <Route path="/careerdevtools" element={<Careerdevtools />} />
+                        <Route path="/careerguides" element={<Careerguides />} />
+                        <Route path="/edupathways" element={<Edupathways />} />
+                        <Route path="/skills" element={<Skills />} />
+                        <Route path="/studymaterials" element={<Studymaterials />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
