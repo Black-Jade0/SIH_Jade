@@ -4,6 +4,7 @@ import axios from "axios"
 import { BACKENDBASEURL } from "../../config";
 import Quizapicall from "./Quizapicall";
 //Because of some reason token is getting deleted ! find the cause or use another method for auth
+//we can't let the user to input his/her answer to questions which are not accedmic or whose answers are definite
 const Quizlandinpage = () => {
   const [response, setResponse] = useState([]);
   const [flag,setFlag]=useState(false);
