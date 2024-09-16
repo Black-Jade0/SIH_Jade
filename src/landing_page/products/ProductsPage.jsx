@@ -19,7 +19,7 @@ function ProductsPage() {
             <RightSection
                 imageURL="For-blog_Monitor-Stocks-02.jpg"
                 productName="Virtual Internship"
-                productDesription=""
+                productDesription="CCards for learning these skill in few days and all (non clickable cards)"
                 imageStyle={{ width: "500px", height: "450px" }}
             />
 
