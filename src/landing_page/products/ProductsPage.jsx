@@ -3,7 +3,6 @@ import "./styles.css";
 import Hero from "./Hero";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
-import Universe from "./Universe";
 
 function ProductsPage() {
     return (
@@ -19,7 +18,6 @@ function ProductsPage() {
             <RightSection
                 imageURL="For-blog_Monitor-Stocks-02.jpg"
                 productName="Virtual Internship"
-                productDesription="CCards for learning these skill in few days and all (non clickable cards)"
                 imageStyle={{ width: "500px", height: "450px" }}
             />
 
@@ -52,7 +50,6 @@ results can influence career recommendations."
             <p className="text-center mt-5 mb-5">
                 Want to explore more? <a href="#">Click here!</a>
             </p>
-            {/* <Universe /> */}
         </div>
     );
 }
