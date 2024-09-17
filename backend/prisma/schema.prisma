@@ -42,3 +42,21 @@ model UserSchema{
   Stemresponse Json?
   Interestbasedresponse Json? 
 }
+model Question {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  author    String
+  authorid  String
+  answers   Answer[]
+}
+model Answer {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  content    String
+  createdAt  DateTime @default(now())
+  questionId String
+  author     String
+  authorid  String
+  question   Question  @relation(fields: [questionId], references: [id])
+}

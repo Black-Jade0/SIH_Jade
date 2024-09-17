@@ -28,6 +28,8 @@ import Careerguides from "./Components/ResourcePortal/careerguides.jsx";
 import Edupathways from "./Components/ResourcePortal/edupathways.jsx";
 import Skills from "./Components/ResourcePortal/skills.jsx";
 import Studymaterials from "./Components/ResourcePortal/studymaterials.jsx";
+import Questionslandingpage from "./Components/QuestionsAnswer/Questionslandingpage.jsx";
+import QuestionwithAnswerpage from "./Components/QuestionsAnswer/QuestionwithAnswerpage.jsx";
 
 function App() {
     return (
@@ -90,6 +92,11 @@ function App() {
                         <Route path="/edupathways" element={<Edupathways />} />
                         <Route path="/skills" element={<Skills />} />
                         <Route path="/studymaterials" element={<Studymaterials />} />
+                        <Route path="/questionlanding" element={<Questionslandingpage />} />
+                        <Route
+                            path="/question/:queid"
+                            element={<QuestionwithAnswerpage />}
+                        />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>

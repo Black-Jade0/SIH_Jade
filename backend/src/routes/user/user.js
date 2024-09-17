@@ -185,5 +185,77 @@ router.get('/api/search',async (req, res) => {
       res.json({message:"Got the error while setting up data"})
     }
   })
+
+  router.post('/questions',authMiddleware ,async (req, res) => {
+    const { title, content, author } = req.body;
+    const authorid = req.userId;
+    try {
+      const question = await prisma.question.create({
+        data: { title, content, author, authorid }
+      });
+      res.json(question);
+    } catch (error) {
+      console.log("got the error: ",error)
+      res.status(500).json({ error: "Failed to create question" });
+    }
+  });
+
+  router.get('/questions', async (req, res) => {
+    try {
+      const questions = await prisma.question.findMany({
+        include: { answers: true }
+      });
+      res.json(questions);
+    } catch (error) {
+      console.log("got the error: ",error)
+      res.status(500).json({ error: "Failed to fetch questions" });
+    }
+  });
+
+  router.post('/answers', authMiddleware,async (req, res) => {
+    const { content, author, questionId } = req.body;
+    const authorid = req.userId;
+    try {
+      const answer = await prisma.answer.create({
+        data: { content, author, authorid ,questionId }
+      });
+      res.json(answer);
+    } catch (error) {
+      console.log("got the error: ",error)
+      res.status(500).json({ error: "Failed to post answer" });
+    }
+  });
+
+  router.get('/sp/answer', async (req,res)=>{
+    const {questionId} = req.query;
+    try{
+      const answer = await prisma.answer.findFirst({
+        where:{
+          questionId
+        }
+      })
+      res.status(200).json(answer);
+
+    }catch(error){
+      console.log("Got the error: ",error);
+      res.status(500).json({error:"Failed to get the answer"})
+    }
+  })
+
+  router.get('/sp/question', async (req,res)=>{
+    const {id} = req.query;
+    try{
+      const question = await prisma.question.findFirst({
+        where:{
+          id
+        }
+      })
+      res.status(200).json(question);
+
+    }catch(error){
+      console.log("Got the error: ",error);
+      res.status(500).json({error:"Failed to get the question"})
+    }
+  })
   
 module.exports=router;
