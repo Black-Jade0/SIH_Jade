@@ -8,7 +8,7 @@ const QuestionwithAnswerpage = (props)=>{
     //props.question.id, i am expecting an array of answer in response so we have to use the map !
     //In a component we can not put any request to backend or any api call without control statement or
     //useEffect !
-    console.log("It is reaching here")
+
     const { queid } = useParams();
     const [recquestion,setRecQuestion] = useState(null);
     const [answerContent, setAnswerContent] = useState('');
@@ -25,7 +25,6 @@ const QuestionwithAnswerpage = (props)=>{
                     }
                 }
             )
-            console.log("Got the question",resq.data)
             setRecQuestion(resq.data)
             setFlag2(true)
         }
@@ -41,8 +40,9 @@ const QuestionwithAnswerpage = (props)=>{
                     }
                 }
             )
-            console.log("Got the answers",resa.data)
-            setRecAnswer(resa.data)
+            const answers = Array.isArray(resa.data) ? resa.data : [resa.data];
+            
+            setRecAnswer(answers)
         }
         fetchanswer();
     },[queid,flag])
@@ -67,6 +67,8 @@ const QuestionwithAnswerpage = (props)=>{
             if(resans.status==200){
                 window.alert("Answer submitted successfully");
                 setFlag(!flag);
+            }else{
+                window.alert("Error while submission !");
             }
         }catch(error){
             console.log("Got the error: ",error)
@@ -74,22 +76,27 @@ const QuestionwithAnswerpage = (props)=>{
         
         setAnswerContent('');
       };
+
     if(!flag2){
         return<div>
             Loading ...
         </div>
     }
     return <div>
-        <div className="flex justify-start">
-        <h2 className="text-xl font-bold">{recquestion.title}</h2>
-        <p>{recquestion.content}</p>
-        <p className="text-sm text-gray-500">Asked by {recquestion.author}</p>
-        {Array.isArray(recanswers) && recanswers.length > 0 ? (
+        <div className=" justify-center">
+        <div className="m-6">
+        <h2 className="text-2xl font-bold">{recquestion.title}</h2>
+        <p className="text-lg font-semibold">{recquestion.content}</p>
+        <p className="text-md text-blue-500">Asked by {recquestion.author}</p>
+        </div>
+        
+        {
+        Array.isArray(recanswers) && recanswers.length > 0 ? (
           recanswers.map((recanswers) => (
-            <div className="border border-black rounded-md col-span-4 mx-auto content-center ">
+            <div className="border border-black rounded-md max-w-6xl mx-auto m-2 ">
             <div key={recanswers.id} className="border p-4">
-              <h2 className="text-xl font-bold">Answered by {recanswers.author}</h2>
-              <p>{recanswers.content}</p>
+              <p className="text-xl">{recanswers.content}</p>
+              <h2 className="text-md mt-2 text-blue-500 pt-2 flex justify-end font-semibold">Answered by {recanswers.author}</h2>
             </div>
             </div>
           ))
@@ -97,16 +104,21 @@ const QuestionwithAnswerpage = (props)=>{
           <div>No Answers available</div>
         )}
         </div>
-        <h1>Write An Answer For This Question</h1>
+        <br/>
+        <h1 className="text-xl">Write An Answer For This Question</h1>
+        <div>
         <textarea
         value={answerContent}
         onChange={(e) => setAnswerContent(e.target.value)}
-        className="w-full mt-4 border p-2"
+        className="w-50 mt-6 border p-2"
         placeholder="Your answer"
       ></textarea>
+      <br/>
       <button onClick={submitAnswer} className="bg-blue-500 text-white mt-2 px-4 py-2 rounded">
         Submit Answer
       </button>
+        </div>
+        
     </div>
 }
 export default QuestionwithAnswerpage;

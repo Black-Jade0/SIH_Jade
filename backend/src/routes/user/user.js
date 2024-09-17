@@ -229,7 +229,7 @@ router.get('/api/search',async (req, res) => {
   router.get('/sp/answer', async (req,res)=>{
     const {questionId} = req.query;
     try{
-      const answer = await prisma.answer.findFirst({
+      const answer = await prisma.answer.findMany({
         where:{
           questionId
         }

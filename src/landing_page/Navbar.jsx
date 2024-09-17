@@ -63,6 +63,14 @@ function Navbar() {
                                 Resources
                             </Link>
                         </li>
+                        <li className="flex flex-row items-center nav-item h-full hover:no-underline hover:bg-slate-300 rounded-full px-4 py-1 hover:scale-110 transition-all">
+                            <Link
+                                className="nav-link hover:no-underline text-xl"
+                                to="/questionlanding"
+                            >
+                                Community Questions
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="singup flex flex-row gap-2 justify-between h-full items-center">
