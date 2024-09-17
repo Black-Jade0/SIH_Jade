@@ -153,3 +153,29 @@ footer {
 .footer-social-icons a:hover {
     color: #007bff;
 }
+
+/* Add a blue underline to active link */
+.active-link {
+    position: relative;
+    font-weight: 600;
+}
+
+/* Blue underline effect for active links */
+.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Distance from text */
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #2563eb; /* Blue color */
+    border-radius: 2px;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+}
+
+/* Ensure the underline isn't visible for inactive links */
+.nav-link::after {
+    transform: scaleX(0);
+}

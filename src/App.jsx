@@ -4,7 +4,6 @@ import HomePage from "./landing_page/home/HomePage.jsx";
 import Signup from "./landing_page/signup/Signup.jsx";
 import AboutPage from "./landing_page/about/AboutPage.jsx";
 import ProductPage from "./landing_page/products/ProductsPage.jsx";
-import PricingPage from "./landing_page/ReadourBlogs/PricingPage.jsx";
 import SupportPage from "./landing_page/support/SupportPage.jsx";
 import NotFound from "./landing_page/NotFound.jsx";
 import Footer from "./landing_page/Footer.jsx";
@@ -12,6 +11,7 @@ import { CreativeTools } from "./Components/Creativetools.jsx";
 import { Basicquiz } from "./Components/basicquiz.jsx";
 import { Searchcareers } from "./Components/Searchcareers.jsx";
 import { RecoilRoot } from "recoil";
+import PricingPage from "./landing_page/ReadourBlogs/PricingPage.jsx";
 import MoreinfoPage from "./Components/MoreinfoPage.jsx";
 import Signin from "./landing_page/signin/Signin.jsx";
 import FetchMoreInfoPage from "./Components/fetchMoreInfopage.jsx";
@@ -30,6 +30,9 @@ import Skills from "./Components/ResourcePortal/skills.jsx";
 import Studymaterials from "./Components/ResourcePortal/studymaterials.jsx";
 import Questionslandingpage from "./Components/QuestionsAnswer/Questionslandingpage.jsx";
 import QuestionwithAnswerpage from "./Components/QuestionsAnswer/QuestionwithAnswerpage.jsx";
+import developerToolsResources from "./Components/ResourcePortal/developerToolsResources.jsx";
+import CounselorTrainingPage from "./landing_page/Counsellor/Counselor.jsx";
+import CareerGuidance from "./landing_page/CareerGuidance/CareerGuidance.jsx";
 
 function App() {
     return (
@@ -43,8 +46,8 @@ function App() {
                         <Route path="/signup" element={<Signup />} />
                         <Route path="/signin" element={<Signin />} />
                         <Route path="/product" element={<ProductPage />} />
-                        <Route path="/pricing" element={<PricingPage />} />
                         <Route path="/support" element={<SupportPage />} />
+                        <Route path="/pricing" element={<PricingPage />} />
                         <Route
                             path="/creativetools"
                             element={<CreativeTools />}
@@ -91,6 +94,9 @@ function App() {
                         <Route path="/careerguides" element={<Careerguides />} />
                         <Route path="/edupathways" element={<Edupathways />} />
                         <Route path="/skills" element={<Skills />} />
+                        <Route path="/creerdevtools" element={<developerToolsResources />} />
+                        <Route path="/CareerGuidance" element={<CareerGuidance />} />
+                        <Route path="/Counselor" element={<CounselorTrainingPage />} />
                         <Route path="/studymaterials" element={<Studymaterials />} />
                         <Route path="/questionlanding" element={<Questionslandingpage />} />
                         <Route
