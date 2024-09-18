@@ -19,8 +19,6 @@ const Search = () => {
   function handleClick(e) {
     e.preventDefault(); // Prevent form from reloading the page
     setFlag2(true);
-    console.log("Hi it is reaching here");
-    console.log("given search query is: ", searchitem);
     setFlag(true);
   }
 
