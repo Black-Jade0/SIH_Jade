@@ -1,13 +1,38 @@
 const express = require("express");
+require('dotenv').config();
 const { createApi } = require("unsplash-js");
-
+const { CohereClient } = require('cohere-ai');
 const router = express.Router();
 
+const cohere = new CohereClient({
+    token: process.env.coheretoken,
+  });
+  
 const serverApi = createApi({
-    accessKey: "-A0uUKLMSWAnLtqg5MsDsS1RFpcugehQ-hKQCnA-x_I", // Replace with your actual access key
+    accessKey: process.env.unsplashaccesskey, 
 });
 
+router.post('/cohere', async (req,res)=>{
+    const { message } = req.body;
+    
+    try{
+    const response = await cohere.chat({
+        message: message,
+      });
+      
+      res.status(200).json(response);
+    }catch(error){
+        console.log("Got the error: ",error);
+        res.status(411).json({error:"Error while making the api call"})
+    }
+    
+})
+
+
+
+
 // API endpoint for searching photos by keyword
+
 router.get("/searchImage", async (req, res) => {
     const query = req.query.query;
 

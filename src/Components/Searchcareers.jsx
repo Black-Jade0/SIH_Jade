@@ -3,6 +3,7 @@ import axios from "axios";
 import CareerList from "./CareerList";
 import { useRecoilState } from "recoil";
 import { keywordatom } from "../atoms/keywordatom";
+import { BACKENDBASEURL } from "../config";
 
 export const Searchcareers = () => {
     //const [keyword,setKeyword]=useState("")
@@ -18,7 +19,7 @@ export const Searchcareers = () => {
             // Check if userkey is not empty
             setIsSearchClicked(true); // Set flag to render CareerList
             try {
-                const baseURL = `http://localhost:3000/user/api/search?keyword=${userkey}`;
+                const baseURL = BACKENDBASEURL+`/user/api/search?keyword=${userkey}`;
                 const response = await axios.get(baseURL);
                 setCareers(response.data); // Set career data
             } catch (error) {

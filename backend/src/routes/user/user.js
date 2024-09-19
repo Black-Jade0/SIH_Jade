@@ -1,6 +1,7 @@
 const express=require("express")
+require('dotenv').config();
 const axios=require("axios");
-const { JWT_PASSWORD } = require("../../config");
+//const { JWT_PASSWORD } = require("../../config");
 const { PrismaClient } = require("@prisma/client");
 const jwt=require("jsonwebtoken")
 const router=express.Router()
@@ -28,7 +29,7 @@ router.post('/signup', async(req,res)=>{
           }
       });
       const userId=mentoruser.id;
-      const token=jwt.sign(userId,JWT_PASSWORD);
+      const token=jwt.sign(userId,process.env.JWT_PASSWORD);
       res.status(200).json({message:"User created successfully",
           token:token
       })
@@ -49,7 +50,7 @@ router.post('/signin',async (req,res)=>{
           }
       })
       if(founduser){
-          const token=jwt.sign({userId:founduser.id},JWT_PASSWORD);
+          const token=jwt.sign({userId:founduser.id},process.env.JWT_PASSWORD);
           res.status(200).json({
               message:"Signed in successfully ",
               token:token
@@ -93,8 +94,8 @@ router.get('/data/:id',async(req,res)=>{
 router.get('/api/search',async (req, res) => {
     const { keyword } = req.query; // Get the keyword from the request query
     const baseURL = `https://services.onetcenter.org/ws/mnm/search?keyword=${keyword}`;
-    const username = 'career_guidance_plat';
-    const password = '6694ejh'; // Replace with your O*NET password
+    const username = process.env.usernameonet;
+    const password = process.env.passwordonet; // Replace with your O*NET password
   
     try {
       // Make the request to the O*NET API with the required headers
@@ -116,8 +117,8 @@ router.get('/api/search',async (req, res) => {
   router.get('/api/search/moreinfo',async (req, res) => {
     const { code } = req.query; // Get the keyword from the request query
     const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}`;
-    const username = 'career_guidance_plat';
-    const password = '6694ejh';
+    const username = process.env.usernameonet;
+    const password = process.env.passwordonet;
   
     try {
       // Make the request to the O*NET API with the required headers
@@ -142,8 +143,8 @@ router.get('/api/search',async (req, res) => {
 
   const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}/${key}`;
 
-  const username = 'career_guidance_plat';
-    const password = '6694ejh';
+  const username = process.env.usernameonet;
+    const password = process.env.passwordonet;
 
   try {
     

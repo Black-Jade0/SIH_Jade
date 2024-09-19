@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 import { Link } from "react-router-dom";
+import { BACKENDBASEURL } from "../../config";
 //Will have to change the db schema (need to add type field in both user and mentor) also have
 //to change middleware so that it puts userId as well as type and then in sign in and sign up route
 //have to add type to localstorage along with token !
@@ -11,7 +12,7 @@ const Questionslandingpage = () => {
       // Fetching all the questions
         async function fetchquestions (){
             try{
-                const response = await axios.get('http://localhost:3000/user/questions')
+                const response = await axios.get(BACKENDBASEURL+'/user/questions')
                 setQuestions(response.data);
             }catch(error){
                 console.log("Got the error:",error)  

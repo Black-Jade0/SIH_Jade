@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const { JWT_PASSWORD } =require("../config");
+//const { JWT_PASSWORD } =require("../config");
 
 const authMiddleware=async (req,res,next)=>{
     const authheader=req.headers.authorization;
@@ -9,7 +9,7 @@ const authMiddleware=async (req,res,next)=>{
     }
     const token=authheader.split(' ')[1]
       try{
-        const decoded= jwt.verify(token,JWT_PASSWORD)
+        const decoded= jwt.verify(token,process.env.JWT_PASSWORD)
         // console.log({"Got the decoded thing with: ":decoded})
         // console.log({"Got the userId thing with: ":decoded.userId})
        if(decoded.userId){
