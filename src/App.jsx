@@ -8,7 +8,6 @@ import SupportPage from "./landing_page/support/SupportPage.jsx";
 import NotFound from "./landing_page/NotFound.jsx";
 import Footer from "./landing_page/Footer.jsx";
 import { CreativeTools } from "./Components/Creativetools.jsx";
-import { Basicquiz } from "./Components/basicquiz.jsx";
 import { Searchcareers } from "./Components/Searchcareers.jsx";
 import { RecoilRoot } from "recoil";
 import PricingPage from "./landing_page/ReadourBlogs/PricingPage.jsx";
@@ -33,6 +32,7 @@ import QuestionwithAnswerpage from "./Components/QuestionsAnswer/QuestionwithAns
 import developerToolsResources from "./Components/ResourcePortal/developerToolsResources.jsx";
 import CounselorTrainingPage from "./landing_page/Counsellor/Counselor.jsx";
 import CareerGuidance from "./landing_page/CareerGuidance/CareerGuidance.jsx";
+import VirtualInternships from "./landing_page/VirtualInternship/VirtualInternship.jsx";
 
 function App() {
     return (
@@ -52,7 +52,6 @@ function App() {
                             path="/creativetools"
                             element={<CreativeTools />}
                         />
-                        <Route path="/basicquiz" element={<Basicquiz />} />
                         <Route
                             path="/searchcareers"
                             element={<Searchcareers />}
@@ -99,6 +98,7 @@ function App() {
                         <Route path="/Counselor" element={<CounselorTrainingPage />} />
                         <Route path="/studymaterials" element={<Studymaterials />} />
                         <Route path="/questionlanding" element={<Questionslandingpage />} />
+                        <Route path="/virtualinternship" element={<VirtualInternships />} />
                         <Route
                             path="/question/:queid"
                             element={<QuestionwithAnswerpage />}
