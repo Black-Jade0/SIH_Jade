@@ -15,7 +15,7 @@
     "axios": "^1.7.6",
     "bootstrap": "^5.3.3",
     "botpress": "^10.51.10",
-    "cohere-ai": "^7.13.0",
+    "cohere-ai": "^7.13.2",
     "dompurify": "^3.1.6",
     "dotenv": "^16.4.5",
     "react": "^18.3.1",
