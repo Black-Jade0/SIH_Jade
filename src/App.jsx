@@ -32,7 +32,9 @@ import QuestionwithAnswerpage from "./Components/QuestionsAnswer/QuestionwithAns
 import developerToolsResources from "./Components/ResourcePortal/developerToolsResources.jsx";
 import CounselorTrainingPage from "./landing_page/Counsellor/Counselor.jsx";
 import CareerGuidance from "./landing_page/CareerGuidance/CareerGuidance.jsx";
+import Askquestion from "./Components/QuestionsAnswer/Askquestion.jsx";
 import VirtualInternships from "./landing_page/VirtualInternship/VirtualInternship.jsx";
+
 
 function App() {
     return (
@@ -103,6 +105,7 @@ function App() {
                             path="/question/:queid"
                             element={<QuestionwithAnswerpage />}
                         />
+                        <Route path="/askquestion" element={<Askquestion />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>

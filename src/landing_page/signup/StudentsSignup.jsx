@@ -28,7 +28,7 @@ function StudentRegistration() {
       [key]: e.target.value,
     }));
   }
-  const [res,setRes]=useState(404);
+  const [res,setRes]=useState(411);
   const handleClick=async (e)=>{
     e.preventDefault();
     if(studentInfo.email.trim()&&studentInfo.username.trim&&studentInfo.lastname.trim()){
@@ -38,6 +38,7 @@ function StudentRegistration() {
         const response = await axios.post(baseURL,studentInfo);
         //It is not persisting ?
         localStorage.setItem("token",response.data.token);
+        localStorage.setItem("type","user");
         setRes(response.status);
     } catch (error) {
         console.error("Error: ", error);
@@ -186,9 +187,12 @@ function StudentRegistration() {
           />
         </div>
         {/* Add more fields as needed */}
-        <button type="submit" onClick={handleClick} className="btn btn-primary">
+        <div className="bg-blue-500  hover:bg-indigo-700 text-white mx-auto w-[20%]
+         font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-indigo-500">
+        <button type="submit" onClick={handleClick} className="">
           Register
         </button>
+        </div>
       </form>
       {/*Add a dialog box to show whether signup was succesfull or not*/}
     </div>

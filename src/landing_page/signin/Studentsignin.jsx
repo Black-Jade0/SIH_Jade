@@ -23,6 +23,7 @@ function StudentSignin() {
         const baseURL = `http://localhost:3000/user/signin`;
         const response = await axios.post(baseURL,studentInfo);
         localStorage.setItem("token",response.data.token);
+        localStorage.setItem("type","user");
         setFlag(!flag)
         setRes(response.status);
         

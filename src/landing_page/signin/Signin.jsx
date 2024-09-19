@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import '../signup/style.css';
 import StudentSignin from "./Studentsignin";
 import SigninTypeSelection from "./SigninTypeSelection";
-import MentorSignup from "../signup/MentorSignup";
 import AdminSignup from "../signup/AdminSignup";
+import MentorSignin from "./Mentorsignin";
 
 
 function Signin() {
@@ -17,7 +17,7 @@ function Signin() {
       ) : signinType === "student" ? (
         <StudentSignin/>
       ) : signinType === "mentor" ? (
-        <MentorSignup />
+        <MentorSignin />
       ) : (
         <AdminSignup />
       )}

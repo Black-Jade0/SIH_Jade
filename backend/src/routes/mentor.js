@@ -2,7 +2,8 @@
 const express=require("express")
 const { PrismaClient } = require('@prisma/client');
 const { JWT_PASSWORD } = require('../config');
-const jwt=require("jsonwebtoken")
+const jwt=require("jsonwebtoken");
+const { authMiddleware } = require("../middleware");
 const router=express.Router()
 const prisma=new PrismaClient();
 
@@ -11,13 +12,13 @@ router.post('/signup', async(req,res)=>{
     try{
         const mentoruser=await prisma.mentorSchema.create({
             data:{
-                name:body.name,
+                name:body.username,
                 lastname:body.lastname,
                 email:body.email,
                 password:body.password,
                 lat:body.lat,
                 long:body.long,
-                field:body.field,
+                field:body.fieldofinterest,
                 socialmedia:{ instagram: body.instagram, twitter: body.twitter, linkedin: body.linkedin },
             }
         });
@@ -106,5 +107,33 @@ router.get('/bulk',async(req,res)=>{
         });
     }
 })
+
+router.post('/questions',authMiddleware ,async (req, res) => {
+    const { title, content, author } = req.body;
+    const authorid = req.userId;
+    try {
+      const question = await prisma.question.create({
+        data: { title, content, author, authorid }
+      });
+      res.json(question);
+    } catch (error) {
+      console.log("got the error: ",error)
+      res.status(500).json({ error: "Failed to create question" });
+    }
+  });
+
+  router.post('/answers', authMiddleware,async (req, res) => {
+    const { content, author, questionId } = req.body;
+    const authorid = req.userId;
+    try {
+      const answer = await prisma.answer.create({
+        data: { content, author, authorid ,questionId }
+      });
+      res.json(answer);
+    } catch (error) {
+      console.log("got the error: ",error)
+      res.status(500).json({ error: "Failed to post answer" });
+    }
+  });
 
 module.exports=router;
