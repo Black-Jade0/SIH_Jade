@@ -1,7 +1,7 @@
 const express=require("express")
 require('dotenv').config();
 const axios=require("axios");
-//const { JWT_PASSWORD } = require("../../config");
+
 const { PrismaClient } = require("@prisma/client");
 const jwt=require("jsonwebtoken")
 const router=express.Router()

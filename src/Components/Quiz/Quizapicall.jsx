@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
-
 import DOMPurify from 'dompurify';
 import axios from "axios"
 import { BACKENDBASEURL } from "../../config"
 const Quizapicall=({ subjects,differenetsub })=>{
-
-
 const [text,setText]=useState("")
 const [flag,setFlag]=useState(false);
 

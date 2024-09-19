@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { BACKENDBASEURL } from "../config"
+
 const FetchMoreInfoPage=()=>{
     let { code,key }=useParams();
     key=key.toLocaleLowerCase();
@@ -11,7 +12,7 @@ const FetchMoreInfoPage=()=>{
           const baseURL = BACKENDBASEURL+`/user/api/search/moreinfo/res?code=${code}&key=${key}`;
           try {
             const response = await axios.get(baseURL);
-            console.log("rec. data:",response.data);
+            
             setInfo(response.data); // Store the detailed info in state
           } catch (error) {
             console.error("Error: ", error);
