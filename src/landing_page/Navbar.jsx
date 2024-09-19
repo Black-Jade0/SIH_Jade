@@ -10,10 +10,10 @@ function Navbar() {
     };
 
     return (
-        <nav className="bg-gray-100 w-screen rounded-lg px-3 py-2 h-[10%] border-b-2">
-            <div className="flex flex-row container h-full px-4 py-2 mx-auto w-full justify-between items-center gap-6">
+        <nav className="flex flex-col justify-center align-middle items-center bg-gray-100 w-screen rounded-lg px-3 py-2 h-[10%] border-b-2">
+            <div className="m-0 flex flex-row container h-full px-4 py-2 w-full justify-between items-center gap-3">
                 <NavLink
-                    className="text-xl flex justify-center items-center h-full w-[50px] text-black"
+                    className="text-xl flex justify-center items-center h-full w-6 text-black"
                     to="/"
                 >
                     <img src="home.svg" alt="Home" className="w-6 h-6" />
@@ -23,9 +23,9 @@ function Navbar() {
                         <li className="h-full">
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-link h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
+                                    `nav-link h-full text-nowrap flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
                                         isActive
-                                            ? " font-bold border-b-4 border-blue-600"
+                                            ? "font-bold border-b-4 border-blue-600"
                                             : ""
                                     }`
                                 }
@@ -37,9 +37,9 @@ function Navbar() {
                         <li className="h-full">
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-link h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
+                                    `nav-link text-nowrap h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
                                         isActive
-                                            ? " font-bold border-b-4 border-blue-600"
+                                            ? "font-bold border-b-4 border-blue-600"
                                             : ""
                                     }`
                                 }
@@ -56,9 +56,9 @@ function Navbar() {
                         >
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-link h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
+                                    `nav-link text-nowrap h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
                                         isActive
-                                            ? " font-bold border-b-4 border-blue-600"
+                                            ? "font-bold border-b-4 border-blue-600"
                                             : ""
                                     }`
                                 }
@@ -115,9 +115,9 @@ function Navbar() {
                         <li className="h-full">
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-link h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
+                                    `nav-link text-nowrap h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
                                         isActive
-                                            ? " font-bold border-b-4 border-blue-600"
+                                            ? "font-bold border-b-4 border-blue-600"
                                             : ""
                                     }`
                                 }
@@ -129,9 +129,9 @@ function Navbar() {
                         <li className="h-full">
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-link h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
+                                    `nav-link text-nowrap h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
                                         isActive
-                                            ? " font-bold border-b-4 border-blue-600"
+                                            ? "font-bold border-b-4 border-blue-600"
                                             : ""
                                     }`
                                 }
@@ -143,24 +143,16 @@ function Navbar() {
                         <li className="h-full">
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-link h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
+                                    `nav-link text-nowrap h-full flex items-center justify-center text-xl px-4 py-2 hover:scale-110 transition-all rounded-full ${
                                         isActive
                                             ? "font-bold border-b-4 border-blue-600"
                                             : ""
                                     }`
                                 }
-                                to="/support"
-                            >
-                                Support
-                            </NavLink>
-                        </li>
-                        <li className="flex flex-row items-center nav-item h-full hover:no-underline hover:bg-slate-300 rounded-full px-4 py-1 hover:scale-110 transition-all">
-                            <Link
-                                className="nav-link hover:no-underline text-xl"
                                 to="/questionlanding"
                             >
                                 Community Questions
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

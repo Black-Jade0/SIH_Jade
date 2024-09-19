@@ -19,6 +19,7 @@ function ProductsPage() {
                 imageURL="For-blog_Monitor-Stocks-02.jpg"
                 productName="Virtual Internship"
                 imageStyle={{ width: "500px", height: "450px" }}
+                internship = "true"
             />
 
             {/* Vocational Training and all */}
