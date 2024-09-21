@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Moreinfo from './Moreinfo';
-
+import { BACKENDBASEURL } from "../config"
 
 const MoreinfoPage = () => {
   const { code } = useParams(); // Retrieve the code from the URL
@@ -10,7 +10,7 @@ const MoreinfoPage = () => {
 
   useEffect(() => {
     async function fetchMoreInfo() {
-      const baseURL = `http://localhost:3000/user/api/search/moreinfo?code=${code}`;
+      const baseURL = BACKENDBASEURL+`/user/api/search/moreinfo?code=${code}`;
       try {
         const response = await axios.get(baseURL);
         setInfo(response.data); // Store the detailed info in state

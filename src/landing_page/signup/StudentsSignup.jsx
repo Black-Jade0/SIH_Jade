@@ -1,8 +1,8 @@
-
 import React, { useState } from "react";
 import './style.css';
 import axios from "axios";
 import { CreativeTools } from "../../Components/Creativetools";
+import { BACKENDBASEURL } from "../../config"
 function StudentRegistration() {
   const [studentInfo, setInfo] = useState({
     username: "",
@@ -34,7 +34,7 @@ function StudentRegistration() {
     if(studentInfo.email.trim()&&studentInfo.username.trim&&studentInfo.lastname.trim()){
       
       try {
-        const baseURL = `http://localhost:3000/user/signup`;
+        const baseURL = BACKENDBASEURL+`/user/signup`;
         const response = await axios.post(baseURL,studentInfo);
         //It is not persisting ?
         localStorage.setItem("token",response.data.token);

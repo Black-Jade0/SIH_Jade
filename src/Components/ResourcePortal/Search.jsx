@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { CohereClient } from 'cohere-ai';
+//import { CohereClient } from 'cohere-ai';
 import DOMPurify from 'dompurify';  // Import DOMPurify
-
-const cohere = new CohereClient({
-  token: 'IA9vNMfHYZhBHoD3GJiqCz3BmeJWZzDgWT8AcuxR',
-});
+import axios from "axios"
+import { BACKENDBASEURL } from "../../config"
+// const cohere = new CohereClient({
+//   token: "IA9vNMfHYZhBHoD3GJiqCz3BmeJWZzDgWT8AcuxR",
+// });
 
 const Search = () => {
   const [searchitem, setSearch] = useState("");
@@ -17,22 +18,26 @@ const Search = () => {
   }
 
   function handleClick(e) {
-    e.preventDefault(); // Prevent form from reloading the page
+    e.preventDefault(); // Prevent form from restting the state variable
     setFlag2(true);
-    setFlag(true);
+    setFlag(!flag);
   }
 
   useEffect(() => {
     if (flag && searchitem.trim()) {
       (async () => {
+        const messagetobesent = searchitem + " give response in html format and don't say like here is your html response in the final response as i am putting the final response on my page without any change so just answer the query"
+        //messagetobesent will be in the body and the response from backend will be response !
+        // const response = await cohere.chat({
+        //   message: messagetobesent,
+        // });
         
-        const response = await cohere.chat({
-          message: searchitem + " give response in html format and don't say like here is your html response in the final response as i am putting the final response on my page without any change so just answer the query",
-        });
-        const sanitizedText = DOMPurify.sanitize(response.text);  // Sanitize the HTML string
+        const response = await axios.post(BACKENDBASEURL+'/images/cohere',{
+            message: messagetobesent
+        })
+        const sanitizedText = DOMPurify.sanitize(response.data.text);  // Sanitize the HTML string
         setText(sanitizedText);
         setFlag2(false);
-        console.log("The response is :", sanitizedText);
       })();
     }
   }, [flag]);
@@ -41,7 +46,7 @@ const Search = () => {
     <div>
       <form className="max-w-md mx-auto">
         <div className="relative">
-          <div className="absolute inset-y-0 start-4 flex items-center ps-3 pointer-events-none">
+          <div className="absolute inset-y-0 start-4 flex items-center ps-4 pointer-events-none">
             <svg
               className="w-4 h-4 text-gray-500"
               aria-hidden="true"
@@ -66,10 +71,11 @@ const Search = () => {
             placeholder="Search..."
             required
           />
+          
           <button
             onClick={handleClick}
             type="button"  // Change type to button to prevent default form submission
-            className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
+            className="text-black absolute end-2.5 bottom-4 bg-blue-500 hover:bg-indigo-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
           >
             Search
           </button>

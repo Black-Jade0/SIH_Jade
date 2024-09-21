@@ -12,7 +12,7 @@ const QuestionwithAnswerpage = ()=>{
     //ye user answer mai hona chaiye ki type kya hai {type=="mentor"?<img src="https://cdn2.iconfinder.com/data/icons/greenline/512/check-512.png" className="size-5 mx-2 mt-3"/>:null} 
     useEffect(()=>{
         //fetching the particular question for which the user clicked in question landing page
-        console.log(queid)
+        
         async function fetchquestion() {
             const resq = await axios.get(BACKENDBASEURL+'/user/sp/question',
                 {
@@ -71,7 +71,6 @@ const QuestionwithAnswerpage = ()=>{
         }catch(error){
             console.log("Got the error: ",error)
         }}
-        
         setAnswerContent('');
       };
 

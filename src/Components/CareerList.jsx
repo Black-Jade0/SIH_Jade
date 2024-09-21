@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { BACKENDBASEURL } from "../config"
 // CareerList Component
 const CareerList = ({ careers }) => {
     const [images, setImages] = useState({});
@@ -14,7 +14,7 @@ const CareerList = ({ careers }) => {
                 const imagePromises = careers.career.map(async (career) => {
                     try {
                         const response = await axios.get(
-                            `http://localhost:3000/images/searchImage`,
+                            BACKENDBASEURL+`/images/searchImage`,
                             {
                                 params: {
                                     query: career.title,

@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
             },
         });
         const userId = mentoruser.id;
-        const token = jwt.sign({ userId }, JWT_PASSWORD);
+        const token = jwt.sign({ userId }, process.env.JWT_PASSWORD);
         res.json({ message: "User created successfully", token: token });
     } catch (e) {
         console.log("Got the error: ", e);
@@ -46,7 +46,10 @@ router.post("/signin", async (req, res) => {
             },
         });
         if (founduser) {
-            const token = jwt.sign({ userId: founduser.id }, JWT_PASSWORD);
+            const token = jwt.sign(
+                { userId: founduser.id },
+                process.env.JWT_PASSWORD
+            );
             res.json({
                 message: "Signed in successfully ",
                 token: token,
@@ -113,6 +116,7 @@ router.post("/questions", authMiddleware, async (req, res) => {
         const question = await prisma.question.create({
             data: { title, content, author, authorid },
         });
+        //res.json({question,authortype:"mentor"}); for giving green tick to mentor only !
         res.json(question);
     } catch (error) {
         console.log("got the error: ", error);

@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
-const { JWT_PASSWORD } = require("../config");
+//const { JWT_PASSWORD } =require("../config");
 
 const authMiddleware = async (req, res, next) => {
     const authheader = req.headers.authorization;
-    console.log({"authheader is: ":authheader});
-    
+    console.log({ "authheader is: ": authheader });
+
     if (!authheader || !authheader.startsWith("Bearer ")) {
         return res.status(403).json({});
     }
