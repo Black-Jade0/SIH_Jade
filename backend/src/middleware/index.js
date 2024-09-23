@@ -1,23 +1,24 @@
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 //const { JWT_PASSWORD } =require("../config");
 
-const authMiddleware=async (req,res,next)=>{
-    const authheader=req.headers.authorization;
-    // console.log({"authheader is: ":authheader})
-    if(!authheader||!authheader.startsWith('Bearer ')){
-        return res.status(403).json({})
+const authMiddleware = async (req, res, next) => {
+    const authheader = req.headers.authorization;
+    console.log({ "authheader is: ": authheader });
+
+    if (!authheader || !authheader.startsWith("Bearer ")) {
+        return res.status(403).json({});
     }
     const token=authheader.split(' ')[1]
     //console.log("Token:", token)
       try{
         const decoded= jwt.verify(token,process.env.JWT_PASSWORD)
         // console.log({"Got the decoded thing with: ":decoded})
-         console.log({"Got the userId thing with: ":decoded.userId})
+        // console.log({"Got the userId thing with: ":decoded.userId})
        if(decoded.userId){
         req.userId=decoded.userId
         next();
       }
-        else{return res.status(403).json({message:"JWT verification failed"})}
+        else{return res.status(403).json({})}
       } 
       catch(err){
         console.log({"authheader is: ":authheader,
@@ -27,6 +28,6 @@ const authMiddleware=async (req,res,next)=>{
       }
 }
 
-module.exports= {
-  authMiddleware
-}
+module.exports = {
+    authMiddleware,
+};

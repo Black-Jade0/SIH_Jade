@@ -1,6 +1,6 @@
-const express=require("express")
-require('dotenv').config();
-const axios=require("axios");
+const express = require("express");
+require("dotenv").config();
+const axios = require("axios");
 
 const { PrismaClient } = require("@prisma/client");
 const jwt=require("jsonwebtoken")
@@ -108,67 +108,66 @@ router.get('/api/search',async (req, res) => {
     const baseURL = `https://services.onetcenter.org/ws/mnm/search?keyword=${keyword}`;
     const username = process.env.usernameonet;
     const password = process.env.passwordonet; // Replace with your O*NET password
-  
+
     try {
-      // Make the request to the O*NET API with the required headers
-      const response = await axios.get(baseURL, {
-        auth: { username, password },
-        headers: {
-          'User-Agent': 'nodejs-OnetWebService/1.00 (bot)',
-          'Accept': 'application/json'
-        },
-        timeout: 10000,
-        maxRedirects: 0
-      });
-  
-      res.json(response.data); // Send the response data back to the client
+        // Make the request to the O*NET API with the required headers
+        const response = await axios.get(baseURL, {
+            auth: { username, password },
+            headers: {
+                "User-Agent": "nodejs-OnetWebService/1.00 (bot)",
+                Accept: "application/json",
+            },
+            timeout: 10000,
+            maxRedirects: 0,
+        });
+
+        res.json(response.data); // Send the response data back to the client
     } catch (error) {
-      res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
-  });
-  router.get('/api/search/moreinfo',async (req, res) => {
+});
+router.get("/api/search/moreinfo", async (req, res) => {
     const { code } = req.query; // Get the keyword from the request query
     const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}`;
     const username = process.env.usernameonet;
     const password = process.env.passwordonet;
-  
+
     try {
-      // Make the request to the O*NET API with the required headers
-      const response = await axios.get(baseURL, {
-        auth: { username, password },
-        headers: {
-          'User-Agent': 'nodejs-OnetWebService/1.00 (bot)',
-          'Accept': 'application/json'
-        },
-        timeout: 10000,
-        maxRedirects: 0
-      });
-  
-      res.json(response.data); // Send the response data back to the client
+        // Make the request to the O*NET API with the required headers
+        const response = await axios.get(baseURL, {
+            auth: { username, password },
+            headers: {
+                "User-Agent": "nodejs-OnetWebService/1.00 (bot)",
+                Accept: "application/json",
+            },
+            timeout: 10000,
+            maxRedirects: 0,
+        });
+
+        res.json(response.data); // Send the response data back to the client
     } catch (error) {
-      res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
-  });
+});
 
-  router.get('/api/search/moreinfo/res', async(req,res)=>{
-    const { code,key } = req.query;
+router.get("/api/search/moreinfo/res", async (req, res) => {
+    const { code, key } = req.query;
 
-  const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}/${key}`;
+    const baseURL = `https://services.onetcenter.org/ws/mnm/careers/${code}/${key}`;
 
-  const username = process.env.usernameonet;
+    const username = process.env.usernameonet;
     const password = process.env.passwordonet;
 
-  try {
-    
-    const response = await axios.get(baseURL, {
-      auth: { username, password },
-      headers: {
-        'User-Agent': 'nodejs-OnetWebService/1.00 (bot)',
-        'Accept': 'application/json', 
-      },
-      timeout: 10000,
-      maxRedirects: 0,
-    });
+    try {
+        const response = await axios.get(baseURL, {
+            auth: { username, password },
+            headers: {
+                "User-Agent": "nodejs-OnetWebService/1.00 (bot)",
+                Accept: "application/json",
+            },
+            timeout: 10000,
+            maxRedirects: 0,
+        });
 
     res.send(response.data);
   } catch (error) {
@@ -182,9 +181,9 @@ router.get('/api/search',async (req, res) => {
     const {userId}=req.userId;
     
     try{
-      const newdetails=await prisma.userDetail.updateMany({
+      const newdetails=await prisma.userSchema.updateMany({
       where:{
-        userId:userId
+        id:userId
       },
       data:{
         Stemresponse:subjects,
@@ -197,78 +196,76 @@ router.get('/api/search',async (req, res) => {
       res.status(411);
       res.json({message:"Got the error while setting up data"})
     }
-  })
+});
 
-  router.post('/questions',authMiddleware ,async (req, res) => {
+router.post("/questions", authMiddleware, async (req, res) => {
     const { title, content, author } = req.body;
     const authorid = req.userId;
     try {
-      const question = await prisma.question.create({
-        data: { title, content, author, authorid }
-      });
-      res.json(question);
+        const question = await prisma.question.create({
+            data: { title, content, author, authorid },
+        });
+        res.json(question);
     } catch (error) {
-      console.log("got the error: ",error)
-      res.status(500).json({ error: "Failed to create question" });
+        console.log("got the error: ", error);
+        res.status(500).json({ error: "Failed to create question" });
     }
-  });
+});
 
-  router.get('/questions', async (req, res) => {
+router.get("/questions", async (req, res) => {
     try {
-      const questions = await prisma.question.findMany({
-        include: { answers: true }
-      });
-      res.json(questions);
+        const questions = await prisma.question.findMany({
+            include: { answers: true },
+        });
+        res.json(questions);
     } catch (error) {
-      console.log("got the error: ",error)
-      res.status(500).json({ error: "Failed to fetch questions" });
+        console.log("got the error: ", error);
+        res.status(500).json({ error: "Failed to fetch questions" });
     }
-  });
+});
 
-  router.post('/answers', authMiddleware,async (req, res) => {
+router.post("/answers", authMiddleware, async (req, res) => {
     const { content, author, questionId } = req.body;
     const authorid = req.userId;
     try {
-      const answer = await prisma.answer.create({
-        data: { content, author, authorid ,questionId }
-      });
-      res.json(answer);
+        const answer = await prisma.answer.create({
+            data: { content, author, authorid, questionId },
+        });
+        res.json(answer);
     } catch (error) {
-      console.log("got the error: ",error)
-      res.status(500).json({ error: "Failed to post answer" });
+        console.log("got the error: ", error);
+        res.status(500).json({ error: "Failed to post answer" });
     }
-  });
+});
 
-  router.get('/sp/answer', async (req,res)=>{
-    const {questionId} = req.query;
-    try{
-      const answer = await prisma.answer.findMany({
-        where:{
-          questionId
-        }
-      })
-      res.status(200).json(answer);
-
-    }catch(error){
-      console.log("Got the error: ",error);
-      res.status(500).json({error:"Failed to get the answer"})
+router.get("/sp/answer", async (req, res) => {
+    const { questionId } = req.query;
+    try {
+        const answer = await prisma.answer.findMany({
+            where: {
+                questionId,
+            },
+        });
+        res.status(200).json(answer);
+    } catch (error) {
+        console.log("Got the error: ", error);
+        res.status(500).json({ error: "Failed to get the answer" });
     }
-  })
+});
 
-  router.get('/sp/question', async (req,res)=>{
-    const {id} = req.query;
-    try{
-      const question = await prisma.question.findFirst({
-        where:{
-          id
-        }
-      })
-      res.status(200).json(question);
-
-    }catch(error){
-      console.log("Got the error: ",error);
-      res.status(500).json({error:"Failed to get the question"})
+router.get("/sp/question", async (req, res) => {
+    const { id } = req.query;
+    try {
+        const question = await prisma.question.findFirst({
+            where: {
+                id,
+            },
+        });
+        res.status(200).json(question);
+    } catch (error) {
+        console.log("Got the error: ", error);
+        res.status(500).json({ error: "Failed to get the question" });
     }
-  })
-  
-module.exports=router;
+});
+
+module.exports = router;

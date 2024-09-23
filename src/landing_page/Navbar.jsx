@@ -19,15 +19,19 @@ function Navbar() {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
+    function userNavbar() {
+        
+    }
+
     return (
-        <nav className="flex flex-col justify-center align-middle items-center bg-gray-100 w-screen rounded-lg px-3 py-2 h-[10%] border-b-2">
-            <div className="m-0 flex flex-row container h-full px-4 py-2 w-full justify-between items-center gap-3">
+        <nav className="flex flex-row justify-center align-middle items-center bg-gray-100 w-screen rounded-lg px-3 py-2 h-[10%] border-b-2">
                 <NavLink
                     className="text-xl flex justify-center items-center h-full w-6 text-black"
                     to="/"
                 >
                     <img src="home.svg" alt="Home" className="w-6 h-6" />
                 </NavLink>
+            <div className="m-0 flex flex-row container h-full px-4 py-2 w-full justify-between items-center gap-3">
                 <div className="flex flex-row items-center h-full flex-nowrap">
                     <ul className="flex items-center space-x-6 h-full w-full">
                         <li className="h-full">
