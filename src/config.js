@@ -1,1 +1,1 @@
-export const BACKENDBASEURL="https://sih-backend-82os.onrender.com/"
+export const BACKENDBASEURL="https://sih-backend-82os.onrender.com"
