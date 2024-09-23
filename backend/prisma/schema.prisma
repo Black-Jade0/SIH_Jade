@@ -42,7 +42,7 @@ model UserDetail{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   lat String?
   long String?
-  userId String @db.ObjectId
+  userId String @db.ObjectId @unique
   phone Int
   state String
   currentstd String

@@ -59,8 +59,21 @@ router.post('/profilesetup', authMiddleware ,async (req,res)=>{
       const userId = req.userId
       //console.log("userId rec. ",userId)
       try{
-        const userdetail = await prisma.userDetail.create({
-          data:{
+        const userdetail = await prisma.userDetail.upsert({
+            where:{userId},
+            update:{
+                userId:userId,
+              lat:body.lat,
+              long:body.long,
+              fieldofinterest:body.fieldofinterest,
+              gender:body.gender,
+              age:Number(body.age),
+              phone:Number(body.phone),
+              state:body.state,
+              currentstd:body.currentstd,
+              socialmedia: { instagram: body.instagram, twitter: body.twitter, linkedin: body.linkedin }
+            },
+          create:{
               userId:userId,
               lat:body.lat,
               long:body.long,

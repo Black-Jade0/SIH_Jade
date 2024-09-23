@@ -34,6 +34,7 @@ import CareerGuidance from "./landing_page/CareerGuidance/CareerGuidance.jsx";
 import Askquestion from "./Components/QuestionsAnswer/Askquestion.jsx";
 import VirtualInternships from "./landing_page/VirtualInternship/VirtualInternship.jsx";
 import Govtschemes from "./Components/ResourcePortal/Govtschemes.jsx";
+import Profile from "./Components/Profile.jsx";
 
 
 function App() {
@@ -107,6 +108,7 @@ function App() {
                         />
                         <Route path="/askquestion" element={<Askquestion />} />
                         <Route path="/govtschemes" element={<Govtschemes />} />
+                        <Route path="/userprofile" element={<Profile />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>

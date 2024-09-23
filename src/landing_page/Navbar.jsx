@@ -174,7 +174,7 @@ function Navbar() {
                 <div className="singup text-nowrap flex flex-row gap-2 justify-between h-full items-center">
                     <NavLink
                         className="flex py-2 rounded-md hover:scale-105 text-xl text-white bg-blue-600 transition-all hover:no-underline font-[500] px-5"
-                        to="/signup"
+                        to="/userprofile"
                     >
                         <button>Profile</button>
                     </NavLink>

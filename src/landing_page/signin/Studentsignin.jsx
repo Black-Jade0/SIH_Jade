@@ -38,7 +38,7 @@ function StudentSignin() {
   const handleResponse = (res) => {
     if (res === 200) {
       // Redirect to the "CreativeTools" page
-      navigate('/creativetools');
+      window.location.assign('/creativetools')
     }
   };
 
