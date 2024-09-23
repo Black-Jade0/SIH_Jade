@@ -16,10 +16,6 @@ router.post('/signup', async(req,res)=>{
                 lastname:body.lastname,
                 email:body.email,
                 password:body.password,
-                lat:body.lat,
-                long:body.long,
-                field:body.fieldofinterest,
-                socialmedia:{ instagram: body.instagram, twitter: body.twitter, linkedin: body.linkedin },
             }
         });
         const userId=mentoruser.id;
@@ -84,6 +80,26 @@ router.get('/data/:id',async(req,res)=>{
         });
     }
   })
+router.post('/profilesetup',authMiddleware,async(req,res)=>{
+    const body = req.body;
+    const mentorId = req.userId;
+    //console.log("Got the mentor id",mentorId)
+    try{
+        const mentorDetail = await prisma.mentorDetail.create({
+            data:{
+                mentorId:mentorId,
+                lat:body.lat,
+                long:body.long,
+                field:body.fieldofinterest,
+                socialmedia:{ instagram: body.instagram, twitter: body.twitter, linkedin: body.linkedin },
+            }
+        })
+        res.status(200).json({message:"Profile created successfully "})
+    }catch(error){
+        console.log("Got the error: ",error)
+        res.json({error:"Failed to setup profile"})
+    }
+})
 router.get('/bulk',async(req,res)=>{
 
     //It is open to all because it won't be sharing any sensitive information

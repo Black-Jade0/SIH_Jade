@@ -3,6 +3,7 @@ import '../signup/style.css';
 import axios from "axios";
 import { CreativeTools } from "../../Components/Creativetools";
 import { BACKENDBASEURL } from "../../config"
+import { useNavigate } from "react-router-dom";
 function StudentSignin() {
   const [studentInfo, setInfo] = useState({
     email:"",
@@ -15,7 +16,7 @@ function StudentSignin() {
       [key]: e.target.value,
     }));
   }
-  const [res,setRes]=useState(404);
+  const navigate = useNavigate(); // Initialize the navigate function
   const [flag,setFlag]=useState(false)
   const handleClick=async (e)=>{
     e.preventDefault();
@@ -26,7 +27,7 @@ function StudentSignin() {
         localStorage.setItem("token",response.data.token);
         localStorage.setItem("type","user");
         setFlag(!flag)
-        setRes(response.status);
+        handleResponse(response.status)
         
     } catch (error) {
         console.error("Error: ", error);
@@ -34,11 +35,12 @@ function StudentSignin() {
     }
     }
   }
-  if(res==200){
-    return(
-        <CreativeTools/>
-    )
-  }
+  const handleResponse = (res) => {
+    if (res === 200) {
+      // Redirect to the "CreativeTools" page
+      navigate('/creativetools');
+    }
+  };
 
   return (
     <div className="container mt-5">

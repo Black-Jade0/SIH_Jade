@@ -1,10 +1,20 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import ChatBot2 from "../ChatBot2";
 
 function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const [islogin,setisLogin] = useState(false);
+    
+    function logout(){
+        localStorage.removeItem("token");
+        window.location.assign('/signin')
+    }
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            setisLogin(true);
+        }
+    })
     const handleMouseClick = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
@@ -156,7 +166,22 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
+               {islogin ?<div>
                 <div className="singup text-nowrap flex flex-row gap-2 justify-between h-full items-center">
+                    <NavLink
+                        className="flex py-2 rounded-md hover:scale-105 text-xl text-white bg-blue-600 transition-all hover:no-underline font-[500] px-5"
+                        to="/signup"
+                    >
+                        <button>Profile</button>
+                    </NavLink>
+                    
+                    <button
+                    onClick={logout} 
+                    className="flex py-2 rounded-md hover:scale-105 text-xl text-white bg-blue-600 transition-all hover:no-underline font-[500] px-8">Logout</button>
+                    
+                </div>
+               </div>
+                :<div className="singup text-nowrap flex flex-row gap-2 justify-between h-full items-center">
                     <NavLink
                         className="flex py-2 rounded-md hover:scale-105 text-xl text-white bg-blue-600 transition-all hover:no-underline font-[500] px-3"
                         to="/signup"
@@ -169,7 +194,7 @@ function Navbar() {
                     >
                         <button>Signin</button>
                     </NavLink>
-                </div>
+                </div>}
 
                 <ChatBot2 />
             </div>

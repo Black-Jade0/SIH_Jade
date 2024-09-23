@@ -16,16 +16,6 @@ router.post('/signup', async(req,res)=>{
               lastname:body.lastname,
               email:body.email,
               password:body.password,
-              lat:body.lat,
-              long:body.long,
-              fieldofinterest:body.fieldofinterest,
-              gender:body.gender,
-              age:Number(body.age),
-              phone:Number(body.phone),
-              state:body.state,
-              currentstd:body.currentstd,
-              socialmedia: { instagram: body.instagram, twitter: body.twitter, linkedin: body.linkedin }
-              
           }
       });
       const userId=mentoruser.id;
@@ -63,11 +53,36 @@ router.post('/signin',async (req,res)=>{
       });
   }
 })
+router.post('/profilesetup', authMiddleware ,async (req,res)=>{
 
+      const body = req.body;
+      const userId = req.userId
+      //console.log("userId rec. ",userId)
+      try{
+        const userdetail = await prisma.userDetail.create({
+          data:{
+              userId:userId,
+              lat:body.lat,
+              long:body.long,
+              fieldofinterest:body.fieldofinterest,
+              gender:body.gender,
+              age:Number(body.age),
+              phone:Number(body.phone),
+              state:body.state,
+              currentstd:body.currentstd,
+              socialmedia: { instagram: body.instagram, twitter: body.twitter, linkedin: body.linkedin }
+          }
+        })
+        res.status(200).json({message:"Profile created successfully"})
+      }catch(error){
+        console.log("Got the error: ",error);
+        res.status(411).json({error:"Failed to setup the profile"});
+      }
+})
 router.get('/data/:id',async(req,res)=>{
 
   //It is open to all because it won't be sharing any sensitive information
-  const { id }=req.params.id
+  const { id }= req.params.id
   try{
       const userdata=await prisma.userSchema.findFirst({
         where:{
@@ -75,10 +90,7 @@ router.get('/data/:id',async(req,res)=>{
         },
           select:{
               name:true,
-              lastname:true,
-              lat:true,
-              long:true,
-              field:true
+              lastname:true
           }
       })
       //single user data json object
@@ -170,9 +182,9 @@ router.get('/api/search',async (req, res) => {
     const {userId}=req.userId;
     
     try{
-      const newdetails=await prisma.userSchema.updateMany({
+      const newdetails=await prisma.userDetail.updateMany({
       where:{
-        id:userId
+        userId:userId
       },
       data:{
         Stemresponse:subjects,
