@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 import { BACKENDBASEURL } from "../config";
-/*make a component which take user's data about himself/herself and make a backend call to put that
-into the database will have to change userschema, we will devide it into two schema one with basic info
-used during login and other for data on the user ! same goes for mentor !
+/*Once the user completed the setup of profile then clicking on profile should show his data and
+a button where he/she can update that data ! 
 */
 
 const UserProfile = ()=>{
@@ -27,25 +26,28 @@ const UserProfile = ()=>{
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
       };
-      const getLocation = () => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              setLocation({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-              });
-              
-            },
-            (error) => {
-              console.error(error);
+      
+      useEffect(()=>{
+        function locationfinder(){
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  setLocation({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                  });
+                  
+                },
+                (error) => {
+                  console.error(error);
+                }
+              );
+            } else {
+              console.log('Geolocation is not supported by this browser.')
             }
-          );
-        } else {
-          console.log('Geolocation is not supported by this browser.')
-        }
-      };
-      useEffect(()=>{getLocation},[])
+          };
+        locationfinder();
+      },[])
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
