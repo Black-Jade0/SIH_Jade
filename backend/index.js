@@ -10,6 +10,8 @@ app.use(express.json());
 const userRouter = require("./src/routes/user/user");
 const mentorRouter = require("./src/routes/mentor");
 const adminRouter = require("./src/routes/admin");
+//for ssl certificate validation
+app.use('/.well-known', express.static(path.join(__dirname, '.well-known')));
 
 // Use routers
 app.use("/user", userRouter);
