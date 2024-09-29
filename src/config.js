@@ -1,1 +1,1 @@
-export const BACKENDBASEURL="http://sihbacken-env.eba-rqneumi6.ap-south-1.elasticbeanstalk.com"
+export const BACKENDBASEURL="http://localhost:3000"

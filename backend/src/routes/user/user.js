@@ -194,7 +194,7 @@ router.get("/api/search/moreinfo/res", async (req, res) => {
     const {userId}=req.userId;
     
     try{
-      const newdetails=await prisma.userSchema.updateMany({
+      const newdetails=await prisma.userDetail.updateMany({
       where:{
         id:userId
       },
@@ -213,7 +213,7 @@ router.get("/api/search/moreinfo/res", async (req, res) => {
 
 router.post("/questions", authMiddleware, async (req, res) => {
     const { title, content, author } = req.body;
-    const authorid = req.userId;
+    const authorid = (req.userId).userId;
     try {
         const question = await prisma.question.create({
             data: { title, content, author, authorid },

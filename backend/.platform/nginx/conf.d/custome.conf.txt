@@ -1,3 +1,0 @@
-location /.well-known/pki-validation/ {
-    alias /var/app/current/.well-known/pki-validation/;
-}
