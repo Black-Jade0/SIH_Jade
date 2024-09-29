@@ -24,8 +24,14 @@ function StudentSignin() {
       try {
         const baseURL = BACKENDBASEURL+`/user/signin`;
         const response = await axios.post(baseURL,studentInfo);
-        localStorage.setItem("token",response.data.token);
+        if(response.status==200){
+          localStorage.setItem("token",response.data.token);
         localStorage.setItem("type","user");
+        }else{
+          throw new Error("Failed login");
+          
+        }
+        
         setFlag(!flag)
         handleResponse(response.status)
         

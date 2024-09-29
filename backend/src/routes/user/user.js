@@ -8,6 +8,7 @@ const router=express.Router()
 const prisma=new PrismaClient();
 const { authMiddleware } =require('../../middleware/index');
 router.post('/signup', async(req,res)=>{
+    console.log("Reaching here")
   const body= req.body;
   try{
       const mentoruser=await prisma.userSchema.create({
@@ -31,6 +32,7 @@ router.post('/signup', async(req,res)=>{
   }
 })
 router.post('/signin',async (req,res)=>{
+    console.log("Reaching here")
   const body=req.body;
   try{
       const founduser=await prisma.userSchema.findFirst({
@@ -39,12 +41,15 @@ router.post('/signin',async (req,res)=>{
               password:body.password
           }
       })
+      console.log("Got the user: ",founduser)
       if(founduser){
           const token=jwt.sign({userId:founduser.id},process.env.JWT_PASSWORD);
           res.status(200).json({
               message:"Signed in successfully ",
               token:token
           })
+      }else{
+        res.status(411).json({message:"User not found !"})
       }
   }catch(e){
       console.log("Got the error: ",e);
@@ -239,7 +244,7 @@ router.get("/questions", async (req, res) => {
 
 router.post("/answers", authMiddleware, async (req, res) => {
     const { content, author, questionId } = req.body;
-    const authorid = req.userId;
+    const authorid = (req.userId).userId;
     try {
         const answer = await prisma.answer.create({
             data: { content, author, authorid, questionId },

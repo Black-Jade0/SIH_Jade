@@ -8,6 +8,7 @@ function Navbar() {
     
     function logout(){
         localStorage.removeItem("token");
+        localStorage.removeItem("type");
         window.location.assign('/signin')
     }
     useEffect(()=>{
