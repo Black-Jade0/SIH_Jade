@@ -1,1 +1,1 @@
-export const BACKENDBASEURL="http://localhost:3000"
+export const BACKENDBASEURL="https://sih-backend-82os.onrender.com"
